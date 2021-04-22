@@ -14,7 +14,3 @@ MainWindow::~MainWindow()
 }
 
 
-void MainWindow::on_openGLWidget_aboutToResize()
-{
-
-}
