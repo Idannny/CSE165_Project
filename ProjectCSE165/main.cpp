@@ -25,6 +25,10 @@ int main(int argc, char *argv[])
         //add the item to the scene
         scene->addItem(rect);
 
+        //make the rectangle focusable
+        rect-> setFlag(QGraphicsItem::ItemIsFocusable);
+        rect-> setFocus();
+
         // add a view
         QGraphicsView *view = new QGraphicsView(scene);
         view->show();
