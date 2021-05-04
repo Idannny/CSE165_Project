@@ -2,6 +2,8 @@
 #include <QTimer>
 #include <QGraphicsScene>
 #include <QDebug>
+#include <QList>
+#include <Enemy.h>
 
 Bullet::Bullet(){ //every time space is pressed
     // drew the rect
@@ -16,6 +18,11 @@ Bullet::Bullet(){ //every time space is pressed
 }
 
 void Bullet::move(){
+    //before anything check if bullet collides with an enemy
+    //if bullet collides with enemy destroy both
+
+    QList<QGraphicsItem *> colliding_items = collidingItems(); //we cand find what the bullet is colliding with
+
     // move bullet up
     setPos(x(),y()-10); //direction of bullet coordinates
 
