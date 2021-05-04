@@ -4,7 +4,10 @@
 #include <QGraphicsView>
 #include <QGraphicsItem>
 #include <QApplication>
+#include <QColor> //allows for a change in color
 #include <QTimer>
+#include <QPushButton>
+#include <QLabel>
 
 //-QgraphScene
 //Qgraphics items
@@ -22,11 +25,20 @@
 //keep characters in its own class
 
 int main(int argc, char *argv[]){
-    QApplication a(argc, argv);
+
+    QApplication a(argc, argv); //we have an application window:
 
     // create a scene
     QGraphicsScene * scene = new QGraphicsScene();
 
+
+    //set color of the scene:
+
+/*
+    QGraphicsScene scene{
+        backgrouund-color: red;
+    }
+*/
     // create an item to add to the scene
     MyRect * player = new MyRect();
     player->setRect(0,0,100,100); // change the rect from 0x0 (default) to 100x100 pixels
@@ -45,9 +57,21 @@ int main(int argc, char *argv[]){
 
     // show the view
     view->show();
-    view->setFixedSize(800,600); //window of focus set at 800px
-    scene->setSceneRect(0,0, 800,600);// coords and size of entire scene// view and scene are now at the origin (topleft)
+    view->setFixedSize(800,800); //window of focus set at 800px... this is the full game window
+    scene->setSceneRect(0,0, 800,800);// coords and size of entire scene// view and scene are now at the origin (topleft)
     //item (player) is defaulted at scene coords
+
+    //adding a reset button:
+    QPushButton * button = new QPushButton(view);
+    button->setText("Reset");
+    button->setToolTip("A Button with my message");
+    button->show();
+
+    //Adding a label
+
+   // QLabel * countLabel = new QLabel(view);
+   // countLabel->
+
 
     // attributes are just variables ie. view as a pointer defined by a class QGraphicsView
 
