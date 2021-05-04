@@ -1,10 +1,15 @@
 #include "Bullet.h"
+#include "Game.h"
+
 #include <QTimer>
 #include <QGraphicsScene>
 #include <QDebug>
 #include <QList>
 #include <Enemy.h>
 #include <QLabel>
+
+
+extern Game * game; // there is an external global object called game
 
 Bullet::Bullet(){ //every time space is pressed
     // drew the rect
@@ -18,7 +23,7 @@ Bullet::Bullet(){ //every time space is pressed
 
 }
 
-int count= 0;
+// Score::int count= 0;
 
 
 void Bullet::move(){
@@ -31,13 +36,16 @@ void Bullet::move(){
     for (int i = 0, n = colliding_items.size(); i<n; i++){
         if(typeid(*(colliding_items[i])) == typeid(Enemy)){
                 //remove both
-                count++;
+//                count++;
+                 game->score->increase();
+
+
                 scene() ->removeItem(colliding_items[i]);
                 scene() ->removeItem(this);
                 //remove from heap
                 delete colliding_items[i];
                 delete this; //bullet
-                qDebug()<<count;
+//                qDebug()<<count;
                 return;//no memory errors
         }
     }

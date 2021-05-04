@@ -3,7 +3,8 @@
 #include <QGraphicsScene>
 #include <QDebug>
 #include <stdlib.h> //rand()
-Enemy::Enemy(){
+
+Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent){
     // draw the enemy
 //    random spawn pos
     int random_number = rand() % 700; //create random enemy within screen

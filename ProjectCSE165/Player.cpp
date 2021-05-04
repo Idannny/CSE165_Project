@@ -1,4 +1,4 @@
-#include "MyRect.h"
+#include "Player.h"
 
 #include <QGraphicsScene>
 #include <QKeyEvent>
@@ -8,12 +8,13 @@
 
 #include <QDebug>
 
-
-#include <QDebug>
-
 //Game Mechanics:
 
-void MyRect::keyPressEvent(QKeyEvent *event){ //when moving the player left and right with boudaries:
+Player::Player(QGraphicsItem *parent): QGraphicsRectItem(parent){ //Player is able to use in main
+
+}
+
+void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and right with boudaries:
     if (event->key() == Qt::Key_Left){
         if(pos().x()>0){ // if the player reaches the bounds because scene's Left is origin x
         setPos(x()-95,y());
@@ -35,11 +36,12 @@ void MyRect::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
         Bullet * bullet = new Bullet();
 
         bullet->setPos(x(),y());
+
         scene()->addItem(bullet);
     }
 }
 
-void MyRect::spawn(){ //to spawn the enemy as rectangular objects:
+void Player::spawn(){ //to spawn the enemy as rectangular objects: similar to user
     //create enemy
 
     Enemy * enemy = new Enemy();

@@ -1,17 +1,18 @@
-#ifndef MYRECT_H
-#define MYRECT_H
+#ifndef PLAYER_H
+#define PLAYER_H
 
 #include <QGraphicsRectItem>
 #include <QGraphicsItem>
 #include <QObject>
 
-class MyRect: public QObject, public QGraphicsRectItem{
+class Player: public QObject, public QGraphicsRectItem{
     Q_OBJECT
 public:
+        Player(QGraphicsItem * parent=0); // now our item is a pointer we can manipulate
     void keyPressEvent(QKeyEvent * event);
 
 public slots:
     void spawn(); //spawn is an event that will be created by extension
 };
 
-#endif // MYRECT_H
+#endif // PLAYER_H
