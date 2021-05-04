@@ -8,7 +8,7 @@
 Bullet::Bullet(){ //every time space is pressed
     // drew the rect
     setRect(0,0,10,50);
-
+//double
     // connect
     QTimer * timer = new QTimer();
     connect(timer,SIGNAL(timeout()),this,SLOT(move())); // connect signal to object, bullet's constructor //every timeout bullet will move
@@ -41,7 +41,10 @@ void Bullet::move(){
     if (pos().y() + rect().height() < 0 ){// 0 is origin for y (Topleft)// with rect().height()we now have that after the size of the bullet moves offscreen it is deleted
         scene() -> removeItem(this);
         delete this;
-//        qDebug() << "Bullet dead";
+        //qDebug() << "Bullet dead";
+        //My comment LaFrance
+        //second comment
+
     }
 
 }
