@@ -1,8 +1,10 @@
 #include "mainwindow.h"
 #include <QGraphicsScene>
-#include "CharacterMOD.h" //extends QraphicsRect
+#include "MyRect.h" //extends QraphicsRect
 #include <QGraphicsView>
+#include <QGraphicsItem>
 #include <QApplication>
+
 
 //-QgraphScene
 //Qgraphics items
@@ -11,29 +13,32 @@
 //Qdebug
 //event propagation system
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]){
     QApplication a(argc, argv);
 
-        //creates a scene objeptr
-        QGraphicsScene *scene = new QGraphicsScene();
+    // create a scene
+    QGraphicsScene * scene = new QGraphicsScene();
 
-        //creates an item to put into scene
-        characterOne *rect = new characterOne();
-        rect ->setRect(0,0,100,100); //100wide100high
+    // create an item to add to the scene
+    MyRect * rect = new MyRect();
+    rect->setRect(0,0,100,100); // change the rect from 0x0 (default) to 100x100 pixels
 
-        //add the item to the scene
-        scene->addItem(rect);
+    // add the item to the scene
+    scene->addItem(rect);
 
-        //make the rectangle focusable
-        rect-> setFlag(QGraphicsItem::ItemIsFocusable);
-        rect-> setFocus();
+    // make rect focusable
+    rect->setFlag(QGraphicsItem::ItemIsFocusable);
+    rect->setFocus();
 
-        // add a view
-        QGraphicsView *view = new QGraphicsView(scene);
-        view->show();
-        // added item to the scene
+    // create a view to visualize the scene
+    QGraphicsView * view = new QGraphicsView(scene);
+    view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
+    // show the view
+    view->show();
+
+    //==new code==
 
 
     return a.exec();

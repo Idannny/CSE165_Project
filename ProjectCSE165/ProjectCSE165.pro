@@ -10,12 +10,12 @@ CONFIG += c++11
 
 SOURCES += \
     Bullet.cpp \
-    CharacterMOD.cpp \
+    MyRect.cpp \
     main.cpp
 
 HEADERS += \
     Bullet.h \
-    CharacterMOD.h
+    MyRect.h
 
 FORMS +=
 
