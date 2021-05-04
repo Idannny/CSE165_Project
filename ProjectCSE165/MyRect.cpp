@@ -10,7 +10,10 @@
 
 
 #include <QDebug>
-void MyRect::keyPressEvent(QKeyEvent *event){
+
+//Game Mechanics:
+
+void MyRect::keyPressEvent(QKeyEvent *event){ //when moving the player left and right with boudaries:
     if (event->key() == Qt::Key_Left){
         if(pos().x()>0){ // if the player reaches the bounds because scene's Left is origin x
         setPos(x()-50,y());
@@ -36,7 +39,7 @@ void MyRect::keyPressEvent(QKeyEvent *event){
     }
 }
 
-void MyRect::spawn(){
+void MyRect::spawn(){ //to spawn the enemy as rectangular objects:
     //create enemy
 
     Enemy * enemy = new Enemy();

@@ -58,5 +58,5 @@ int main(int argc, char *argv[]){
     QTimer *timer = new QTimer();
     QObject::connect(timer,SIGNAL(timeout()),player, SLOT(spawn()));
     timer -> start(2000); //create an enemy every 2 seconds
-    return a.exec();
+    return a.exec(); //execution of the command
 }

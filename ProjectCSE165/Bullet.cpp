@@ -31,7 +31,7 @@ void Bullet::move(){
                 //remove from heap
                 delete colliding_items[i];
                 delete this; //bullet
-                return;//no memory errors
+                //return;//no memory errors
         }
     }
     // move bullet up
