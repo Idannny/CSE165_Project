@@ -25,15 +25,15 @@ int main(int argc, char *argv[]){
     QGraphicsScene * scene = new QGraphicsScene();
 
     // create an item to add to the scene
-    MyRect * rect = new MyRect();
-    rect->setRect(0,0,100,100); // change the rect from 0x0 (default) to 100x100 pixels
+    MyRect * player = new MyRect();
+    player->setRect(0,0,100,100); // change the rect from 0x0 (default) to 100x100 pixels
 
     // add the item to the scene
-    scene->addItem(rect);
+    scene->addItem(player);
 
     // make rect focusable
-    rect->setFlag(QGraphicsItem::ItemIsFocusable);
-    rect->setFocus();
+    player->setFlag(QGraphicsItem::ItemIsFocusable);
+    player->setFocus();
 
     // create a view to visualize the scene
     QGraphicsView * view = new QGraphicsView(scene);
@@ -46,7 +46,10 @@ int main(int argc, char *argv[]){
     scene->setSceneRect(0,0, 800,600);// coords and size of entire scene// view and scene are now at the origin (topleft)
     //item (player) is defaulted at scene coords
 
+    // attributes are just variables ie. view as a pointer defined by a class QGraphicsView
 
+    //member function ie. height() width()
+    player->setPos(view ->width()/2, view->height() - player->rect().height());// setting location of the player according to window view
 
 
     return a.exec();
