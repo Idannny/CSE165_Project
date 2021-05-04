@@ -13,6 +13,11 @@
 //Qdebug
 //event propagation system
 
+//3 different coordinates
+// -QgraphicScene coords will get bigger by default scene rect scollable area Begins at TopLeft
+//- QGraphicView coords Begins at TopLeft (origin)
+//-QGraphcsItem coords Begins at TopLeft (origin)
+
 int main(int argc, char *argv[]){
     QApplication a(argc, argv);
 
@@ -32,13 +37,16 @@ int main(int argc, char *argv[]){
 
     // create a view to visualize the scene
     QGraphicsView * view = new QGraphicsView(scene);
-    view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff); //bc then bullet goes on forever and creates a large window
     view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     // show the view
     view->show();
+    view->setFixedSize(800,600); //window of focus set at 800px
+    scene->setSceneRect(0,0, 800,600);// coords and size of entire scene// view and scene are now at the origin (topleft)
+    //item (player) is defaulted at scene coords
 
-    //==new code==
+
 
 
     return a.exec();
