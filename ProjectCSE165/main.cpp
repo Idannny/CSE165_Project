@@ -6,7 +6,10 @@
 #include <QApplication>
 #include <QColor> //allows for a change in color
 #include <QTimer>
+<<<<<<< HEAD
 #include <QPushButton>
+=======
+>>>>>>> 14bc31f28bbfa56d2857a0bdd2511ffedfb6cd6b
 #include <QLabel>
 
 //-QgraphScene
@@ -26,10 +29,15 @@
 
 int main(int argc, char *argv[]){
 
+
     QApplication a(argc, argv); //we have an application window:
+
+
+
 
     // create a scene
     QGraphicsScene * scene = new QGraphicsScene();
+
 
 
     //set color of the scene:
@@ -39,6 +47,17 @@ int main(int argc, char *argv[]){
         backgrouund-color: red;
     }
 */
+
+    QLabel *label = new QLabel();
+    label->setFrameStyle(QFrame::Panel | QFrame::Sunken);
+    label->setText("first line\nsecond line");
+    label->setAlignment(Qt::AlignBottom | Qt::AlignRight);
+    //Here is how to change position:
+//    label->setGeometry(QRectF(10,10,30,80));
+
+
+
+
     // create an item to add to the scene
     MyRect * player = new MyRect();
     player->setRect(0,0,100,100); // change the rect from 0x0 (default) to 100x100 pixels
@@ -84,5 +103,7 @@ int main(int argc, char *argv[]){
     timer -> start(2000); //create an enemy every 2 seconds
     return a.exec(); //execution of the command
 
+
     //a testing comment
+
 }
