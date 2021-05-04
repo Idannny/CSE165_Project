@@ -1,5 +1,7 @@
 #include "Bullet.h"
 #include <QTimer>
+#include <QGraphicsScene>
+#include <QDebug>
 
 Bullet::Bullet(){ //every time space is pressed
     // drew the rect
@@ -16,4 +18,12 @@ Bullet::Bullet(){ //every time space is pressed
 void Bullet::move(){
     // move bullet up
     setPos(x(),y()-10); //direction of bullet coordinates
+
+    //when bullets move off the screen delete them waste of memoory
+    if (pos().y() + rect().height() < 0 ){// 0 is origin for y (Topleft)// with rect().height()we now have that after the size of the bullet moves offscreen it is deleted
+        scene() -> removeItem(this);
+        delete this;
+        qDebug() << "Bullet dead";
+    }
+
 }
