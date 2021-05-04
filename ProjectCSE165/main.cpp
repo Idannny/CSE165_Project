@@ -5,6 +5,7 @@
 #include <QGraphicsItem>
 #include <QApplication>
 #include <QTimer>
+#include <QLabel>
 
 //-QgraphScene
 //Qgraphics items
@@ -22,10 +23,21 @@
 //keep characters in its own class
 
 int main(int argc, char *argv[]){
+
     QApplication a(argc, argv);
 
     // create a scene
     QGraphicsScene * scene = new QGraphicsScene();
+
+
+    QLabel *label = new QLabel();
+    label->setFrameStyle(QFrame::Panel | QFrame::Sunken);
+    label->setText("first line\nsecond line");
+    label->setAlignment(Qt::AlignBottom | Qt::AlignRight);
+    //Here is how to change position:
+//    label->setGeometry(QRectF(10,10,30,80));
+
+
 
     // create an item to add to the scene
     MyRect * player = new MyRect();
@@ -59,4 +71,6 @@ int main(int argc, char *argv[]){
     QObject::connect(timer,SIGNAL(timeout()),player, SLOT(spawn()));
     timer -> start(2000); //create an enemy every 2 seconds
     return a.exec(); //execution of the command
+
+
 }
