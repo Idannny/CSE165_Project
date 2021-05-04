@@ -23,6 +23,17 @@ void Bullet::move(){
 
     QList<QGraphicsItem *> colliding_items = collidingItems(); //we cand find what the bullet is colliding with
 
+    for (int i = 0, n = colliding_items.size(); i<n; i++){
+        if(typeid(*(colliding_items[i])) == typeid(Enemy)){
+                //remove both
+                scene() ->removeItem(colliding_items[i]);
+                scene() ->removeItem(this);
+                //remove from heap
+                delete colliding_items[i];
+                delete this; //bullet
+                return;//no memory errors
+        }
+    }
     // move bullet up
     setPos(x(),y()-10); //direction of bullet coordinates
 

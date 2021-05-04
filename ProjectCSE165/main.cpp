@@ -54,7 +54,7 @@ int main(int argc, char *argv[]){
     //member function ie. height() width()
     player->setPos(view ->width()/2, view->height() - player->rect().height());// setting location of the player according to window view
 
-    //spawn enemy
+    //SPAWN enemy
     QTimer *timer = new QTimer();
     QObject::connect(timer,SIGNAL(timeout()),player, SLOT(spawn()));
     timer -> start(2000); //create an enemy every 2 seconds
