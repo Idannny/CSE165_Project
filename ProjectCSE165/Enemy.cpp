@@ -1,23 +1,27 @@
-#include "Bullet.h"
+#include "Enemy.h"
 #include <QTimer>
 #include <QGraphicsScene>
 #include <QDebug>
+#include <stdlib.h> //rand()
+Enemy::Enemy(){
+    // draw the enemy
+//    random spawn pos
+    int random_number = rand() % 700; //create random enemy within screen
+      setPos(random_number,0);
 
-Bullet::Bullet(){ //every time space is pressed
-    // drew the rect
-    setRect(0,0,10,50);
+    setRect(0,0,100,100);
 
     // connect
-    QTimer * timer = new QTimer();
+    QTimer * timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(move())); // connect signal to object, bullet's constructor //every timeout bullet will move
 
     timer->start(50); //every 50 ms timeout signals move to move bullet
 
 }
 
-void Bullet::move(){
-    // move bullet up
-    setPos(x(),y()-10); //direction of bullet coordinates
+void Enemy::move(){
+    // move enemy down
+    setPos(x(),y()+5); //moves down
 
     //when bullets move off the screen delete them waste of memoory
     if (pos().y() + rect().height() < 0 ){// 0 is origin for y (Topleft)// with rect().height()we now have that after the size of the bullet moves offscreen it is deleted
