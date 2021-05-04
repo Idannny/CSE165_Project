@@ -15,13 +15,13 @@ Enemy::Enemy(){
     QTimer * timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(move())); // connect signal to object, bullet's constructor //every timeout bullet will move
 
-    timer->start(50); //every 50 ms timeout signals move to move bullet
+    timer->start(25); //every 50 ms timeout signals move to move bullet
 
 }
 
 void Enemy::move(){
     // move enemy down
-    setPos(x(),y()+5); //moves down
+    setPos(x(),y()+10); //moves down
 
     //when bullets move off the screen delete them waste of memoory
     if (pos().y() + rect().height() < 0 ){// 0 is origin for y (Topleft)// with rect().height()we now have that after the size of the bullet moves offscreen it is deleted
