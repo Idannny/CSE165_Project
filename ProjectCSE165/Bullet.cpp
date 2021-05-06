@@ -17,6 +17,7 @@ Bullet::Bullet(){ //every time space is pressed
 //double
     // connect
     QTimer * timer = new QTimer();
+
     connect(timer,SIGNAL(timeout()),this,SLOT(move())); // connect signal to object, bullet's constructor //every timeout bullet will move
 
     timer->start(25); //every 50 ms timeout signals move to move bullet
