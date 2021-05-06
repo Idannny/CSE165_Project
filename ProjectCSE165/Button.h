@@ -11,8 +11,10 @@
 
 //#include <QMainWindow>
 
+#include "Player.h"
 
-class Button: public QPushButton{
+
+class Button: public QPushButton , public Player{
 
 public:
 

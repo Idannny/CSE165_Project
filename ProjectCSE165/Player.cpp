@@ -25,7 +25,7 @@ void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
 
             qDebug()<<"collide check";
 
-        this->setPos(x()+400, y()+500);
+        this->setPos(400, 500); //This is how to reset the player:
 
              }
             }

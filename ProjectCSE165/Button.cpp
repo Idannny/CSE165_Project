@@ -1,6 +1,8 @@
 //#include "Button.h" //including our button header file
 #include "Game.h"
 
+#include<QObject>
+
 
 
 Button::Button(QPushButton *parent): QPushButton(parent){
