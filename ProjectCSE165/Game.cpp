@@ -42,7 +42,7 @@ Game::Game(QWidget *parent){
     //CREATE NEW PLAYER
 
     player = new Player();
-    player->setRect(0,0,25,25); // change the rect from 0x0 (default) to 100x100 pixels
+    player->setRect(0,0,30,30); // change the rect from 0x0 (default) to 100x100 pixels
     player->setPos(400,500);
     // add the item to the scene
 
