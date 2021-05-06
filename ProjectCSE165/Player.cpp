@@ -26,10 +26,10 @@ void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
         }
     }
    else if (event->key() == Qt::Key_Up){
-        setPos(x(),y()-10);
+        setPos(x(),y()-90);
     }
     else if (event->key() == Qt::Key_Down){ //prevent from using up and down
-        setPos(x(),y()+10);
+        setPos(x(),y()+90);
     }
     else if (event->key() == Qt::Key_Space){
         // create a bullet
