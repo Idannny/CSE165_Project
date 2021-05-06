@@ -16,19 +16,18 @@ Player::Player(QGraphicsItem *parent): QGraphicsRectItem(parent){ //Player is ab
 
 void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and right with boudaries:
 
-    QList<QGraphicsItem *> colliding_items = collidingItems(); //we cand find what the bullet is colliding with
+//    QList<QGraphicsItem *> colliding_items = collidingItems(); //we cand find what the bullet is colliding with
 
 
-    for (int i = 0, n = colliding_items.size(); i<n; i++){
-        if(typeid(*(colliding_items[i])) == typeid(Enemy)){
+//    for (int i = 0, n = colliding_items.size(); i<n; i++){
+//        if(typeid(*(colliding_items[i])) == typeid(Enemy)){
 
-            qDebug()<<"collide check";
+//            qDebug()<<"collide check";
 
-            parent -> setPos(x()+400, y()+500);
+//        this->setPos(x()+400, y()+500);
 
-            return;
-             }
-        }
+//             }
+//            }
 
     if (event->key() == Qt::Key_Left){
         if(pos().x()>0){ // if the player reaches the bounds because scene's Left is origin x
@@ -47,7 +46,6 @@ void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
         }
     }
     else if (event->key() == Qt::Key_Down){ //prevent from using up and down
-
         if(pos().y() +40 <600){ //"down boundary
         setPos(x(),y()+30);
         }
@@ -66,4 +64,20 @@ void Player::spawn(){ //to spawn the enemy as rectangular objects: similar to us
 
     Enemy * enemy = new Enemy();
     scene() -> addItem(enemy);//additem is member from Qgraphicsscene
+}
+
+void Player::reset()
+{
+        QList<QGraphicsItem *> colliding_items = collidingItems(); //we cand find what the bullet is colliding with
+
+
+        for (int i = 0, n = colliding_items.size(); i<n; i++){
+            if(typeid(*(colliding_items[i])) == typeid(Enemy)){
+
+                qDebug()<<"collide check";
+
+            this->setPos(x()+400, y()+500);
+
+                 }
+                }
 }

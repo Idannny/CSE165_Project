@@ -16,6 +16,7 @@ public:
 
 public slots:
     void spawn(); //spawn is an event that will be created by extension
+    void reset();
 };
 
 #endif // PLAYER_H

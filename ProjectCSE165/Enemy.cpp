@@ -1,10 +1,16 @@
+#include <Player.h>
 #include "Enemy.h"
 //#include <QTimer>
 #include <QGraphicsScene>
 #include <QDebug>
+#include <QGraphicsItem>
+#include <QList>
 #include <stdlib.h> //rand()
 
 Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent){
+
+
+
     // draw the enemy
 
     //WALLS
@@ -27,6 +33,18 @@ Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent){
 
 void Enemy::move(){
     // move enemy down
+
+        QList<QGraphicsItem *> colliding_items = collidingItems(); //we can find what the player is colliding with
+
+        for (int i = 0, n = colliding_items.size(); i<n; i++){
+            if(typeid(*(colliding_items[i])) == typeid(Player)){
+
+                qDebug()<<"collide check";
+
+//            this->setPos(x()+400, y()+500);
+                 }
+            }
+
     setPos(x(),y()); //moves down
 
     //when bullets move off the screen delete them waste of memoory
