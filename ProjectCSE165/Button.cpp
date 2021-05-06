@@ -31,5 +31,7 @@ void Button::handleButton(){
     //resize the Button:
     my_button->resize(100, 100);
 
-    //my_button->show();
+    //can we change the position of the player?
+
+
 }

@@ -5,6 +5,7 @@
 
 #include <QFont>
 #include <QColor>
+#include <QBrush>
 #include <QPushButton>
 
 #include "Enemy.h"
@@ -26,10 +27,12 @@ Game::Game(QWidget * parent){
     setFixedSize(800,600);
 
     //COLOR WINDOW
-    QColor * color = new QColor();
-   // scene->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 0, 0);"));
-    color->setNamedColor("blue");
-    setAutoFillBackground(color); //doesnt WORK
+   // QColor * color;
+    //color->setNamedColor(QColor(255, 0, 0, 127));
+
+
+
+
 
     //titleworks
          setWindowTitle("Final Game");
