@@ -16,7 +16,7 @@ Player::Player(QGraphicsItem *parent): QGraphicsRectItem(parent){ //Player is ab
 
 void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and right with boudaries:
 
-//    QList<QGraphicsItem *> colliding_items = collidingItems(); //we cand find what the bullet is colliding with
+   QList<QGraphicsItem *> colliding_items = collidingItems(); //we cand find what the bullet is colliding with
 
 
     for (int i = 0, n = colliding_items.size(); i<n; i++){
