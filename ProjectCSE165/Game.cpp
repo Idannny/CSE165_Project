@@ -68,13 +68,10 @@ Game::Game(QWidget * parent){
 
     //SPAWN enemy
 
-     player->spawn();
-
-
-
-//         QTimer *timer = new QTimer();
+//      QTimer *timer = new QTimer();
 //    QObject::connect(timer,SIGNAL(timeout()),player, SLOT(spawn()));
-
-
+  player->spawn();
+    player->spawn();
+      player->spawn();
 //    timer -> start(1000);
 }

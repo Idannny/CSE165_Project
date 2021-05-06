@@ -6,6 +6,7 @@
 #include <QGraphicsItem>
 #include <QList>
 #include <stdlib.h> //rand()
+#include <vector>
 
 Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent){
 
@@ -33,14 +34,6 @@ Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent){
 
 
 void Enemy::move(){
-
-
-    int random_x = rand() % 30; //create random enemy within screen
-    int random_y = rand() % 600;
-
-   for(int i= 0; i<5 ; i++){
-    setPos(x()+random_x,y()+random_y); //moves down
-    }
 
     //when bullets move off the screen delete them waste of memoory
     if (pos().y() + rect().height() < 0 ){// 0 is origin for y (Topleft)// with rect().height()we now have that after the size of the
