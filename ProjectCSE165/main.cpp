@@ -1,10 +1,13 @@
-#include "mainwindow.h"
+
 //#include <QGraphicsScene>
 //#include "Player.h" //extends QraphicsRect//PORTED TO GAME.CPP
 //#include <QGraphicsView>
 //#include <QGraphicsItem>
 #include <QApplication>
 #include "Game.h"
+//#include <QDialog>
+//#include <QMessageBox>
+//#include <QPushButton>
 
 //----------------PORTED TO GAME.CPP-----------------
 //#include <QColor> //allows for a change in color
@@ -132,6 +135,7 @@ int main(int argc, char *argv[]){
 
        game = new Game();
        game->show();
+
 
     return videoGame.exec(); //execution of the command
 

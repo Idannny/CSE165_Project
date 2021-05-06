@@ -13,7 +13,7 @@ Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent){
 //     int random_y = rand() % 600;
 
      setPos(30,0);
-
+     setPos(600,0);
     setRect(0,0,100,500);
     //setRect(0,0,100,200);
     // connect

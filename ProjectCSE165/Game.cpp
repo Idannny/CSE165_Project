@@ -2,7 +2,7 @@
 #include <QGraphicsView>
 #include <QTimer>
 #include <QGraphicsTextItem>
-
+#include <QGraphicsEllipseItem>
 #include <QFont>
 #include <QColor>
 #include <QPushButton>
@@ -16,6 +16,8 @@ extern Game * game;
 
 Game::Game(QWidget *parent){
 
+
+
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,800,600); // make the scene 800x600 instead of infinity by infinity (default)
 
@@ -24,20 +26,10 @@ Game::Game(QWidget *parent){
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(800,600);
 
-    //COLOR WINDOW
-    QColor * color = new QColor();
-   // scene->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 0, 0);"));
-    color->setNamedColor("blue");
-    setAutoFillBackground(color); //doesnt WORK
-
     //titleworks
          setWindowTitle("Final Game");
-         show();
 
-    //adding a reset button: //may need to add class :(
-//     button = new QPushButton();
-//     button->setText("Reset");
-//    button->setToolTip("A Button with my message");
+         show();
 
     //CREATE NEW PLAYER
 
@@ -61,5 +53,13 @@ Game::Game(QWidget *parent){
     //SPAWN enemy
     QTimer *timer = new QTimer();
     QObject::connect(timer,SIGNAL(timeout()),player, SLOT(spawn()));
-    timer -> start(1000);
+   timer -> start(1000);//makes it so rectangles appear every 1 second
+
+
+//   parent = new QWidget(this);
+//  setGeometry(0, 0, 800, 600);
+//   setStyleSheet("background-color:lightGray");
+
+
+
 }

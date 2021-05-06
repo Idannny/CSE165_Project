@@ -2,6 +2,9 @@
 #define PLAYER_H
 
 #include <QGraphicsRectItem>
+
+#include <QGraphicsEllipseItem>
+
 #include <QGraphicsItem>
 #include <QObject>
 
