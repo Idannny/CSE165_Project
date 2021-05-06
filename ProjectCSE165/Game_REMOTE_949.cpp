@@ -2,7 +2,7 @@
 #include <QGraphicsView>
 #include <QTimer>
 #include <QGraphicsTextItem>
-#include <QGraphicsEllipseItem>
+
 #include <QFont>
 #include <QColor>
 #include <QPushButton>
@@ -17,8 +17,6 @@ extern Game * game;
 
 Game::Game(QWidget * parent){
 
-
-
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,800,600); // make the scene 800x600 instead of infinity by infinity (default)
 
@@ -27,12 +25,16 @@ Game::Game(QWidget * parent){
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(800,600);
 
+    //COLOR WINDOW
+    QColor * color = new QColor();
+   // scene->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 0, 0);"));
+    color->setNamedColor("blue");
+    setAutoFillBackground(color); //doesnt WORK
+
     //titleworks
          setWindowTitle("Final Game");
-
-<<<<<<< HEAD
          show();
-=======
+
 
     //adding the button onto the game:
 
@@ -41,7 +43,6 @@ Game::Game(QWidget * parent){
        // my_button->showMaximized();
         my_button->setGeometry(QRect(QPoint(700,0) , QSize(100, 100))); //to set the block shown in the app window
         scene->addWidget(my_button); //To add the button onto the scene!!
->>>>>>> a850f2dd99d5084a47b7bcf14255c5db9ce3351d
 
     //CREATE NEW PLAYER
 
@@ -65,13 +66,5 @@ Game::Game(QWidget * parent){
     //SPAWN enemy
     QTimer *timer = new QTimer();
     QObject::connect(timer,SIGNAL(timeout()),player, SLOT(spawn()));
-   timer -> start(1000);//makes it so rectangles appear every 1 second
-
-
-//   parent = new QWidget(this);
-//  setGeometry(0, 0, 800, 600);
-//   setStyleSheet("background-color:lightGray");
-
-
-
+    timer -> start(1000);
 }

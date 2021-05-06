@@ -9,13 +9,12 @@
 
 #include "Enemy.h"
 #include "Game.h"
-//#include "Button.h"
 
 extern Game * game;
 //-Qgraphics TextItem setplainText() font and textcolor
 //GAME IS IN CHARGEOF ALL THE ITEMS TO POP UP
 
-Game::Game(QWidget * parent){
+Game::Game(QWidget *parent){
 
 
 
@@ -30,18 +29,7 @@ Game::Game(QWidget * parent){
     //titleworks
          setWindowTitle("Final Game");
 
-<<<<<<< HEAD
          show();
-=======
-
-    //adding the button onto the game:
-
-        my_button = new Button; //a new object of Button
-
-       // my_button->showMaximized();
-        my_button->setGeometry(QRect(QPoint(700,0) , QSize(100, 100))); //to set the block shown in the app window
-        scene->addWidget(my_button); //To add the button onto the scene!!
->>>>>>> a850f2dd99d5084a47b7bcf14255c5db9ce3351d
 
     //CREATE NEW PLAYER
 

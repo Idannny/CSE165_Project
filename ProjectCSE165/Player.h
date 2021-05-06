@@ -2,6 +2,9 @@
 #define PLAYER_H
 
 #include <QGraphicsRectItem>
+
+#include <QGraphicsEllipseItem>
+
 #include <QGraphicsItem>
 #include <QObject>
 
@@ -13,6 +16,7 @@ public:
 
 public slots:
     void spawn(); //spawn is an event that will be created by extension
+    void reset();
 };
 
 #endif // PLAYER_H

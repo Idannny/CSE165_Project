@@ -2,22 +2,19 @@
 #include <QGraphicsView>
 #include <QTimer>
 #include <QGraphicsTextItem>
-#include <QGraphicsEllipseItem>
+
 #include <QFont>
 #include <QColor>
 #include <QPushButton>
 
 #include "Enemy.h"
 #include "Game.h"
-//#include "Button.h"
 
 extern Game * game;
 //-Qgraphics TextItem setplainText() font and textcolor
 //GAME IS IN CHARGEOF ALL THE ITEMS TO POP UP
 
-Game::Game(QWidget * parent){
-
-
+Game::Game(QWidget *parent){
 
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,800,600); // make the scene 800x600 instead of infinity by infinity (default)
@@ -27,21 +24,20 @@ Game::Game(QWidget * parent){
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(800,600);
 
+    //COLOR WINDOW
+    QColor * color = new QColor();
+   // scene->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 0, 0);"));
+    color->setNamedColor("blue");
+    setAutoFillBackground(color); //doesnt WORK
+
     //titleworks
          setWindowTitle("Final Game");
-
-<<<<<<< HEAD
          show();
-=======
 
-    //adding the button onto the game:
-
-        my_button = new Button; //a new object of Button
-
-       // my_button->showMaximized();
-        my_button->setGeometry(QRect(QPoint(700,0) , QSize(100, 100))); //to set the block shown in the app window
-        scene->addWidget(my_button); //To add the button onto the scene!!
->>>>>>> a850f2dd99d5084a47b7bcf14255c5db9ce3351d
+    //adding a reset button: //may need to add class :(
+//     button = new QPushButton();
+//     button->setText("Reset");
+//    button->setToolTip("A Button with my message");
 
     //CREATE NEW PLAYER
 
@@ -65,13 +61,5 @@ Game::Game(QWidget * parent){
     //SPAWN enemy
     QTimer *timer = new QTimer();
     QObject::connect(timer,SIGNAL(timeout()),player, SLOT(spawn()));
-   timer -> start(1000);//makes it so rectangles appear every 1 second
-
-
-//   parent = new QWidget(this);
-//  setGeometry(0, 0, 800, 600);
-//   setStyleSheet("background-color:lightGray");
-
-
-
+    timer -> start(1000);
 }

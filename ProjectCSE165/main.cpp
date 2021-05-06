@@ -1,11 +1,21 @@
+<<<<<<< HEAD
+
+=======
 //#include "mainwindow.h"
+>>>>>>> a850f2dd99d5084a47b7bcf14255c5db9ce3351d
 //#include <QGraphicsScene>
 //#include "Player.h" //extends QraphicsRect//PORTED TO GAME.CPP
 //#include <QGraphicsView>
 //#include <QGraphicsItem>
 #include <QApplication>
 #include "Game.h"
+<<<<<<< HEAD
+//#include <QDialog>
+//#include <QMessageBox>
+//#include <QPushButton>
+=======
 //#include "Button.h"
+>>>>>>> a850f2dd99d5084a47b7bcf14255c5db9ce3351d
 
 //----------------PORTED TO GAME.CPP-----------------
 //#include <QColor> //allows for a change in color
@@ -134,9 +144,12 @@ int main(int argc, char *argv[]){
        game = new Game();
        game->show();
 
+<<<<<<< HEAD
+=======
        //Button my_button;
        //button.showMaximized();
 
+>>>>>>> a850f2dd99d5084a47b7bcf14255c5db9ce3351d
 
     return videoGame.exec(); //execution of the command
 
