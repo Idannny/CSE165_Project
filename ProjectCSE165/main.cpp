@@ -144,8 +144,6 @@ int main(int argc, char *argv[]){
        game->show();
 
 
-       //Button my_button;
-       //button.showMaximized();
 
 
     return videoGame.exec(); //execution of the command
