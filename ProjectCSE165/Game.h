@@ -8,6 +8,8 @@
 
 #include "Player.h"
 #include "Score.h"
+#include "Bullet.h"
+#include "Button.h"
 
 //new widget
 //parents are for moving items that are on the same character
@@ -20,7 +22,7 @@ public:
     QGraphicsScene * scene;
     Player * player;
     Score * score;
-    QPushButton * button;
+    Button * my_button;
 
 
 };

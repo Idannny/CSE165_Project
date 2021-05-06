@@ -9,12 +9,13 @@
 
 #include "Enemy.h"
 #include "Game.h"
+//#include "Button.h"
 
 extern Game * game;
 //-Qgraphics TextItem setplainText() font and textcolor
 //GAME IS IN CHARGEOF ALL THE ITEMS TO POP UP
 
-Game::Game(QWidget *parent){
+Game::Game(QWidget * parent){
 
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,800,600); // make the scene 800x600 instead of infinity by infinity (default)
@@ -34,10 +35,14 @@ Game::Game(QWidget *parent){
          setWindowTitle("Final Game");
          show();
 
-    //adding a reset button: //may need to add class :(
-//     button = new QPushButton();
-//     button->setText("Reset");
-//    button->setToolTip("A Button with my message");
+
+    //adding the button onto the game:
+
+        my_button = new Button; //a new object of Button
+
+       // my_button->showMaximized();
+        my_button->setGeometry(QRect(QPoint(700,0) , QSize(100, 100))); //to set the block shown in the app window
+        scene->addWidget(my_button); //To add the button onto the scene!!
 
     //CREATE NEW PLAYER
 
