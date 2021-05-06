@@ -1,7 +1,7 @@
 //#include "Button.h" //including our button header file
 #include "Game.h"
 
-#include<QObject>
+
 
 
 
@@ -17,7 +17,7 @@ Button::Button(QPushButton *parent): QPushButton(parent){
 
     //connecting the button signal to the appropiate slot:
 
-    connect(my_button, &QPushButton::released, this, &Button::handleButton);
+     connect(my_button, &QPushButton::released, this, &Button::handleButton);
 
 
 
