@@ -10,7 +10,7 @@
 
 //#include "Game.h"
 
-class Player: public QObject, public QGraphicsRectItem{
+class Player: virtual public QObject, virtual public QGraphicsRectItem{
     Q_OBJECT
 public:
         Player(QGraphicsItem * parent=0); // now our item is a pointer we can manipulate
