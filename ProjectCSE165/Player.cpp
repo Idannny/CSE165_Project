@@ -19,15 +19,15 @@ void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
 //    QList<QGraphicsItem *> colliding_items = collidingItems(); //we cand find what the bullet is colliding with
 
 
-//    for (int i = 0, n = colliding_items.size(); i<n; i++){
-//        if(typeid(*(colliding_items[i])) == typeid(Enemy)){
+    for (int i = 0, n = colliding_items.size(); i<n; i++){
+        if(typeid(*(colliding_items[i])) == typeid(Enemy)){
 
-//            qDebug()<<"collide check";
+            qDebug()<<"collide check";
 
-//        this->setPos(x()+400, y()+500);
+        this->setPos(x()+400, y()+500);
 
-//             }
-//            }
+             }
+            }
 
     if (event->key() == Qt::Key_Left){
         if(pos().x()>0){ // if the player reaches the bounds because scene's Left is origin x
@@ -68,16 +68,7 @@ void Player::spawn(){ //to spawn the enemy as rectangular objects: similar to us
 
 void Player::reset()
 {
-        QList<QGraphicsItem *> colliding_items = collidingItems(); //we cand find what the bullet is colliding with
 
 
-        for (int i = 0, n = colliding_items.size(); i<n; i++){
-            if(typeid(*(colliding_items[i])) == typeid(Enemy)){
 
-                qDebug()<<"collide check";
-
-            this->setPos(x()+400, y()+500);
-
-                 }
-                }
 }
