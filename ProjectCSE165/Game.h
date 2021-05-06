@@ -6,10 +6,14 @@
 #include <QGraphicsScene>
 #include <QPushButton>
 
+// leads to less ambiguity across all our files
+
 #include "Player.h"
 #include "Score.h"
 #include "Bullet.h"
 #include "Button.h"
+#include "Enemy.h"
+#include "Color.h"
 
 //new widget
 //parents are for moving items that are on the same character

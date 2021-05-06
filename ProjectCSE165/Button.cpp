@@ -1,5 +1,5 @@
-#include "Button.h" //including our button header file
-//#include "Game.h"
+//#include "Button.h" //including our button header file
+#include "Game.h"
 
 
 
@@ -32,6 +32,9 @@ void Button::handleButton(){
     my_button->resize(100, 100);
 
     //can we change the position of the player?
+
+    //game = new Game();
+   // game->show();
 
 
 }

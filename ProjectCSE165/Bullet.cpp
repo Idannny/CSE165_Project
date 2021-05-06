@@ -1,11 +1,11 @@
-#include "Bullet.h"
+//#include "Bullet.h"
 #include "Game.h"
 
 #include <QTimer>
 #include <QGraphicsScene>
 #include <QDebug>
 #include <QList>
-#include <Enemy.h>
+//#include <Enemy.h>
 #include <QLabel>
 
 

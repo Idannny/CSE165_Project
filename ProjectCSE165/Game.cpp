@@ -8,7 +8,7 @@
 #include <QBrush>
 #include <QPushButton>
 
-#include "Enemy.h"
+//#include "Enemy.h"
 #include "Game.h"
 //#include "Button.h"
 

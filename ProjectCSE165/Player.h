@@ -8,6 +8,8 @@
 #include <QGraphicsItem>
 #include <QObject>
 
+//#include "Game.h"
+
 class Player: public QObject, public QGraphicsRectItem{
     Q_OBJECT
 public:

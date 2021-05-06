@@ -1,10 +1,11 @@
-#include "Player.h"
+#include "Game.h"
 
 #include <QGraphicsScene>
 #include <QKeyEvent>
 
-#include "Bullet.h"
-#include "Enemy.h"
+//#include "Bullet.h"
+//#include "Button.h"
+//#include "Enemy.h"
 #include <QList>
 #include <QDebug>
 
@@ -68,6 +69,7 @@ void Player::spawn(){ //to spawn the enemy as rectangular objects: similar to us
 
 void Player::reset()
 {
+
 
 
 
