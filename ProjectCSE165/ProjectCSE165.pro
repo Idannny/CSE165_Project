@@ -20,6 +20,7 @@ SOURCES += \
 HEADERS += \
     Bullet.h \
     Button.h \
+    Button.h \
     Enemy.h \
     Game.h \
     Player.h \
