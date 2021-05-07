@@ -77,6 +77,7 @@ Game::Game(QWidget * parent){
   }
 
     player->spawnGoal();
+
 //      player->spawn();
 //    timer -> start(1000);
 

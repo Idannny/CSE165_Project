@@ -36,6 +36,7 @@ Walls::Walls(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent){
           setPos(random_x,530);
           setRect(0,0,50,500);
      }                                      //REMEMBER random_x and Random_y are the corners of the rectangles so technically you make the pont before rect
+                                            //MAYBE DO RANDOM COLORS
 
      if(random_x < 400){ //width of player
 
