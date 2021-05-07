@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/audio">
+        <file>back.wav</file>
+        <file>zoom.wav</file>
+    </qresource>
+</RCC>

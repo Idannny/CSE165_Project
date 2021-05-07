@@ -28,7 +28,6 @@ public:
     Score * score;
     Button * my_button;
 
-
 };
 
 

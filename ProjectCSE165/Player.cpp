@@ -1,5 +1,5 @@
 #include "Game.h"
-
+//#include "Player.h"
 #include <QGraphicsScene>
 #include <QKeyEvent>
 
@@ -9,9 +9,13 @@
 #include <QList>
 #include <QDebug>
 
+
 //Game Mechanics:
 
 Player::Player(QGraphicsItem *parent): QGraphicsRectItem(parent){ //Player is able to use in main
+//Attribute of player
+    resetSound = new QMediaPlayer();
+    resetSound->setMedia(QUrl("qrc:/audio/zoom.wav"));//https://mixkit.co/free-sound-effects/
 
 }
 
@@ -23,9 +27,11 @@ void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
     for (int i = 0, n = colliding_items.size(); i<n; i++){
         if(typeid(*(colliding_items[i])) == typeid(Enemy)){
 
+                resetSound->play();
+
             qDebug()<<"collide check";
 
-        this->setPos(400, 500); //This is how to reset the player:
+            this->setPos(400, 500); //This is how to reset the player:
 
              }
             }
@@ -67,10 +73,3 @@ void Player::spawn(){ //to spawn the enemy as rectangular objects: similar to us
     scene() -> addItem(enemy);//additem is member from Qgraphicsscene
 }
 
-void Player::reset()
-{
-
-
-
-
-}

@@ -20,8 +20,8 @@ public:
 
 private slots:
     void handleButton();
-private:
 
+private:
     QPushButton * my_button;
 
 

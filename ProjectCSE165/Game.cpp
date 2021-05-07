@@ -7,6 +7,7 @@
 #include <QColor>
 #include <QBrush>
 #include <QPushButton>
+#include <QMediaPlayer>
 
 //#include "Enemy.h"
 #include "Game.h"
@@ -29,9 +30,6 @@ Game::Game(QWidget * parent){
     //COLOR WINDOW
    // QColor * color;
     //color->setNamedColor(QColor(255, 0, 0, 127));
-
-
-
 
 
     //titleworks
@@ -74,4 +72,10 @@ Game::Game(QWidget * parent){
     player->spawn();
       player->spawn();
 //    timer -> start(1000);
+
+      QMediaPlayer * music = new QMediaPlayer();
+      music->setMedia(QUrl("qrc:/audio/back.wav")); //https://ia802607.us.archive.org/23/items/soundkeeperrecordings-formats/sr002-01-16
+      music->play();
+
+      show();
 }
