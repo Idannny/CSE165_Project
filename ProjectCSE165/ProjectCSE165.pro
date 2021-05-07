@@ -13,21 +13,21 @@ SOURCES += \
     Bullet.cpp \
     Button.cpp \
     Color.cpp \
-    Enemy.cpp \
     Game.cpp \
     Player.cpp \
     Score.cpp \
-    main.cpp
+    main.cpp \
+    walls.cpp
 
 HEADERS += \
     Bullet.h \
     Button.h \
     Button.h \
     Color.h \
-    Enemy.h \
     Game.h \
     Player.h \
-    Score.h
+    Score.h \
+    walls.h
 
 FORMS +=
 

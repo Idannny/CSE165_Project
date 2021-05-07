@@ -12,7 +12,7 @@
 #include "Score.h"
 #include "Bullet.h"
 #include "Button.h"
-#include "Enemy.h"
+#include "walls.h"
 #include "Color.h"
 
 //new widget

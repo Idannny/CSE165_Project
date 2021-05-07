@@ -22,6 +22,7 @@ public slots:
     void spawn(); //spawn is an event that will be created by extension
 private:
     QMediaPlayer *resetSound;
+
 };
 
 #endif // PLAYER_H

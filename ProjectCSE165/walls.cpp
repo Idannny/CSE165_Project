@@ -8,7 +8,7 @@
 #include <stdlib.h> //rand()
 #include <vector>
 
-Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent){
+Walls::Walls(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent){
 
     // draw the enemy
 
@@ -33,7 +33,7 @@ Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent){
 
 
 
-void Enemy::move(){
+void Walls::move(){
 
     //when bullets move off the screen delete them waste of memoory
     if (pos().y() + rect().height() < 0 ){// 0 is origin for y (Topleft)// with rect().height()we now have that after the size of the

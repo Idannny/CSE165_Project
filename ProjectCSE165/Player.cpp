@@ -25,7 +25,7 @@ void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
 
 
     for (int i = 0, n = colliding_items.size(); i<n; i++){
-        if(typeid(*(colliding_items[i])) == typeid(Enemy)){
+        if(typeid(*(colliding_items[i])) == typeid(Walls)){
 
                 resetSound->play();
 
@@ -69,7 +69,7 @@ void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
 void Player::spawn(){ //to spawn the enemy as rectangular objects: similar to user
     //create enemy
 
-    Enemy * enemy = new Enemy();
+    Walls * enemy = new Walls();
     scene() -> addItem(enemy);//additem is member from Qgraphicsscene
 }
 
