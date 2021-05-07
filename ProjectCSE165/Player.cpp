@@ -67,9 +67,11 @@ void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
 }
 
 void Player::spawn(){ //to spawn the enemy as rectangular objects: similar to user
-    //create enemy
+    //create Walls
 
-    Walls * enemy = new Walls();
-    scene() -> addItem(enemy);//additem is member from Qgraphicsscene
+
+
+    Walls * borderWall = new Walls(); //VERY IMPORTANT
+    scene() -> addItem(borderWall);//additem is member from Qgraphicsscene
 }
 

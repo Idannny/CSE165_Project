@@ -10,14 +10,17 @@
 
 Walls::Walls(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent){
 
-    // draw the enemy
+
 
     //WALLS
-//    random spawn pos
+    // random spawn pos
      int random_x = rand() % 700; //create random enemy within screen
      int random_y = rand() % 600;
 
-     setPos(30+random_x,random_y);
+     if(random_x>400 &&random_x<500){ // wont spawn on character
+         random_x = 200;
+     }
+     setPos(30+random_x,random_y-30);
 
      setRect(0,0,100,500);
 

@@ -69,8 +69,8 @@ Game::Game(QWidget * parent){
 //      QTimer *timer = new QTimer();
 //    QObject::connect(timer,SIGNAL(timeout()),player, SLOT(spawn()));
   player->spawn();
-    player->spawn();
-      player->spawn();
+//    player->spawn();
+//      player->spawn();
 //    timer -> start(1000);
 
       QMediaPlayer * music = new QMediaPlayer();
