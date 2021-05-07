@@ -7,7 +7,7 @@
 #include <QColor>
 #include <QBrush>
 #include <QPushButton>
-#include <QMediaPlayer>
+//#include <QMediaPlayer>
 
 //#include "Enemy.h"
 //#include "Button.h"
@@ -80,10 +80,13 @@ Game::Game(QWidget * parent){
 //      player->spawn();
 //    timer -> start(1000);
 
+
+    /* Attempts at sound
       QMediaPlayer * music = new QMediaPlayer();
       music->setMedia(QUrl("qrc:/audio/back.wav")); //https://ia802607.us.archive.org/23/items/soundkeeperrecordings-formats/sr002-01-16
      music->setVolume(15);
       music->play();
-
+    */
       show();
+
 }

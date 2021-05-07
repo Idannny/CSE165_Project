@@ -12,14 +12,18 @@
 
 //Game Mechanics:
 
+
 Player::Player(QGraphicsItem *parent): QGraphicsRectItem(parent){ //Player is able to use in main
+
 //Attribute of player
-    resetSound = new QMediaPlayer();
-    resetSound->setMedia(QUrl("qrc:/audio/zoom.wav"));//https://mixkit.co/free-sound-effects/
+   // resetSound = new QMediaPlayer();
+   // resetSound->setMedia(QUrl("qrc:/audio/zoom.wav"));//https://mixkit.co/free-sound-effects/
 
 
  //   goalSound = new QMediaPlayer();
 }
+
+
 
 void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and right with boudaries:
 
@@ -29,7 +33,7 @@ void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
     for (int i = 0, n = colliding_items.size(); i<n; i++){
         if(typeid(*(colliding_items[i])) == typeid(Walls)){
 
-                resetSound->play();
+                //resetSound->play();
 //            qDebug()<<"collide check";
 
             this->setPos(400, 500); //This is how to reset the player:

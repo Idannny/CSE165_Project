@@ -7,7 +7,7 @@
 
 #include <QGraphicsItem>
 #include <QObject>
-#include <QMediaPlayer>
+//#include <QMediaPlayer>
 
 //#include "Game.h"
 
@@ -22,7 +22,7 @@ public slots:
     void spawnWall(); //spawn is an event that will be created by extension
     void spawnGoal();
 private:
-    QMediaPlayer *resetSound;
+  //  QMediaPlayer *resetSound;
 //    QMediaPlayer *goalSound;
 
 };
