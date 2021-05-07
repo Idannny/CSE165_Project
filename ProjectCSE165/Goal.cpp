@@ -13,14 +13,14 @@ Goal::Goal(QGraphicsItem *parent): QObject(), QGraphicsEllipseItem(parent){
      int random_x = rand() % 600; //create random enemy within screen
      int random_y = rand() % 600;
 
-     qDebug()<<"x: "<<random_x<<"y: " <<random_y;
+//     qDebug()<<"x: "<<random_x<<"y: " <<random_y;
 
      if(random_x<400 || random_x>500){ // wont spawn on character
 //         random_x = 200;
 
          qDebug()<<"INSIDE x: "<<random_x<<"y: " <<random_y;
          setPos(random_x,random_y);
-           setRect(0,0, 100,100 );
+           setRect(0,0, 10,10 );
 
 
      }
@@ -28,7 +28,7 @@ Goal::Goal(QGraphicsItem *parent): QObject(), QGraphicsEllipseItem(parent){
 
 void Goal::move()
 {
-      setPos(100,100);
+//      setPos(100,100);
 }
 
 

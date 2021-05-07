@@ -33,7 +33,7 @@ void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
 //            qDebug()<<"collide check";
 
             this->setPos(400, 500); //This is how to reset the player:
-
+                      //(x ,  y  )
              }
             }
 
