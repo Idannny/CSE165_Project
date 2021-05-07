@@ -10,7 +10,8 @@ class Bullet: public QObject,public QGraphicsRectItem{
 public:
     Bullet();
 public slots: //a member function that can be accesed by .cpp
-    void move(); //refactor, adds definition to bullet.cpp
+    void moveUp(); //refactor, adds definition to bullet.cpp
+
 };
 
 #endif // BULLET_H

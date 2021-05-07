@@ -64,11 +64,14 @@ Game::Game(QWidget * parent){
      score = new Score();
      scene->addItem(score);
 
-    //SPAWN enemy
+    //SPAWN WAlls
 
 //      QTimer *timer = new QTimer();
 //    QObject::connect(timer,SIGNAL(timeout()),player, SLOT(spawn()));
-  player->spawn();
+
+  for(int i = 1; i<100; i++){
+     player->spawn();
+  }
 //    player->spawn();
 //      player->spawn();
 //    timer -> start(1000);

@@ -17,12 +17,17 @@ Walls::Walls(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent){
      int random_x = rand() % 700; //create random enemy within screen
      int random_y = rand() % 600;
 
-     if(random_x>400 &&random_x<500){ // wont spawn on character
-         random_x = 200;
-     }
-     setPos(30+random_x,random_y-30);
+     qDebug()<<"x: "<<random_x<<"y: " <<random_y;
 
-     setRect(0,0,100,500);
+     if(random_x<400 || random_x>500){ // wont spawn on character
+         random_x = 200;
+
+         qDebug()<<"INSIDE x: "<<random_x<<"y: " <<random_y;
+         setPos(random_x,random_y);
+
+         setRect(0,0,90,700);
+     }
+
 
 
     // connect

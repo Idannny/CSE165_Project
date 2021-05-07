@@ -16,18 +16,20 @@ Bullet::Bullet(){ //every time space is pressed
     setRect(12.5,12.5,1,1);
 //double
     // connect
-    QTimer * timer = new QTimer();
+    QTimer * timerUp = new QTimer();
 
-    connect(timer,SIGNAL(timeout()),this,SLOT(move())); // connect signal to object, bullet's constructor //every timeout bullet will move
 
-    timer->start(25); //every 50 ms timeout signals move to move bullet
+    connect(timerUp,SIGNAL(timeout()),this,SLOT(moveUp())); // connect signal to object, bullet's constructor //every timeout bullet will move
+
+
+    timerUp->start(25); //every 50 ms timeout signals move to move bullet
 
 }
 
 // Score::int count= 0;
 
 
-void Bullet::move(){
+void Bullet::moveUp(){
     //before anything check if bullet collides with an enemy
     //if bullet collides with enemy destroy both
 
@@ -55,6 +57,7 @@ void Bullet::move(){
 
 
 
+
     //when bullets move off the screen delete them waste of memoory
     if (pos().y() + rect().height() < 0 ){// 0 is origin for y (Topleft)// with rect().height()we now have that after the size of the bullet moves offscreen it is deleted
         scene() -> removeItem(this);
@@ -64,3 +67,5 @@ void Bullet::move(){
         //second comment
     }
 }
+
+
