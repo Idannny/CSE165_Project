@@ -10,8 +10,10 @@
 #include <QMediaPlayer>
 
 //#include "Enemy.h"
-#include "Game.h"
 //#include "Button.h"
+
+#include "Game.h"
+
 
 extern Game * game;
 //-Qgraphics TextItem setplainText() font and textcolor
@@ -69,10 +71,11 @@ Game::Game(QWidget * parent){
 //      QTimer *timer = new QTimer();
 //    QObject::connect(timer,SIGNAL(timeout()),player, SLOT(spawn()));
 
-  for(int i = 1; i<100; i++){
-     player->spawn();
+  for(int i = 1; i<10; i++){
+     player->spawnWall();
   }
-//    player->spawn();
+
+    player->spawnGoal();
 //      player->spawn();
 //    timer -> start(1000);
 

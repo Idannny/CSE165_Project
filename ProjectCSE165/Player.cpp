@@ -17,6 +17,8 @@ Player::Player(QGraphicsItem *parent): QGraphicsRectItem(parent){ //Player is ab
     resetSound = new QMediaPlayer();
     resetSound->setMedia(QUrl("qrc:/audio/zoom.wav"));//https://mixkit.co/free-sound-effects/
 
+
+ //   goalSound = new QMediaPlayer();
 }
 
 void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and right with boudaries:
@@ -28,8 +30,7 @@ void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
         if(typeid(*(colliding_items[i])) == typeid(Walls)){
 
                 resetSound->play();
-
-            qDebug()<<"collide check";
+//            qDebug()<<"collide check";
 
             this->setPos(400, 500); //This is how to reset the player:
 
@@ -66,12 +67,17 @@ void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
     }
 }
 
-void Player::spawn(){ //to spawn the enemy as rectangular objects: similar to user
-    //create Walls
-
-
+void Player::spawnWall(){ //to spawn the enemy as rectangular objects: similar to user
+    //create Walls AND goal
 
     Walls * borderWall = new Walls(); //VERY IMPORTANT
-    scene() -> addItem(borderWall);//additem is member from Qgraphicsscene
+    scene() -> addItem(borderWall);
+    /*scene() -> addItem(endGoal);*///additem is member from Qgraphicsscene
+}
+
+void Player::spawnGoal()
+{
+    Goal * endGoal = new Goal();
+    scene() -> addItem(endGoal);//additem is member from Qgraphicsscene
 }
 

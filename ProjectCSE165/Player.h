@@ -19,9 +19,11 @@ public:
     void keyPressEvent(QKeyEvent * event);
 
 public slots:
-    void spawn(); //spawn is an event that will be created by extension
+    void spawnWall(); //spawn is an event that will be created by extension
+    void spawnGoal();
 private:
     QMediaPlayer *resetSound;
+//    QMediaPlayer *goalSound;
 
 };
 

@@ -14,6 +14,7 @@ SOURCES += \
     Button.cpp \
     Color.cpp \
     Game.cpp \
+    Goal.cpp \
     Player.cpp \
     Score.cpp \
     main.cpp \
@@ -25,6 +26,7 @@ HEADERS += \
     Button.h \
     Color.h \
     Game.h \
+    Goal.h \
     Player.h \
     Score.h \
     walls.h

@@ -6,7 +6,9 @@
 #include <QGraphicsItem>
 #include <QList>
 #include <stdlib.h> //rand()
-#include <vector>
+
+
+//WE SHOULD HAVE ENEMY TURRETS
 
 Walls::Walls(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent){
 
@@ -41,7 +43,9 @@ Walls::Walls(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent){
 
 
 
-void Walls::move(){
+void Walls::move(){ //we also want different types of walls moving
+
+//          setPos(x(),y()); //WILL MAKE WALS MOVE
 
     //when bullets move off the screen delete them waste of memoory
     if (pos().y() + rect().height() < 0 ){// 0 is origin for y (Topleft)// with rect().height()we now have that after the size of the

@@ -16,6 +16,8 @@ void Score::increase()
 {
     score++;
      setPlainText(QString("Score: ") + QString::number(score)); // Score: 1
+
+     //lets increase when we hit the circle?
 }
 
 int Score::getScore()

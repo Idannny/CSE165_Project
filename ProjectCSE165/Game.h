@@ -14,7 +14,7 @@
 #include "Button.h"
 #include "walls.h"
 #include "Color.h"
-
+#include "Goal.h"
 //new widget
 //parents are for moving items that are on the same character
 
