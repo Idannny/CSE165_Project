@@ -24,12 +24,12 @@ extern Game * game;
 Game::Game(QWidget * parent){
 
     scene = new QGraphicsScene();
-    scene->setSceneRect(0,0,800,800); // make the scene 800x600 instead of infinity by infinity (default)
+    scene->setSceneRect(0,0,1000,1000); // make the scene 800x600 instead of infinity by infinity (default)
 
     setScene(scene);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setFixedSize(800,800);
+    setFixedSize(1000,1000);
 
     //COLOR WINDOW
    // QColor * color;
@@ -46,14 +46,14 @@ Game::Game(QWidget * parent){
         my_button = new Button; //a new object of Button
 
        // my_button->showMaximized();
-        my_button->setGeometry(QRect(QPoint(700,0) , QSize(100, 100))); //to set the block shown in the app window
+        my_button->setGeometry(QRect(QPoint(900,0) , QSize(100, 100))); //to set the block shown in the app window
         scene->addWidget(my_button); //To add the button onto the scene!!
 
     //CREATE NEW PLAYER
 
     player = new Player();
     player->setRect(0,0,25,25); // change the rect from 0x0 (default) to 100x100 pixels
-    player->setPos(400,780);                                                            // negative X is <-
+    player->setPos(500,1000);                                                            // negative X is <-
                                                                                        //negative Y is ^
     // add the item to the scene
 
@@ -65,6 +65,9 @@ Game::Game(QWidget * parent){
     scene->addItem(player);
    // setting location of the player according to window view
 
+    //seeing if the reset button can work:
+     QPushButton::connect(my_button,SIGNAL(clicked()),player, SLOT(Button()));
+
 //SCORE UPDATE
      score = new Score();
      scene->addItem(score);
@@ -74,7 +77,7 @@ Game::Game(QWidget * parent){
       QTimer * timer = new QTimer();
      //Walls * wall = new Walls();
     QObject::connect(timer,SIGNAL(timeout()),player, SLOT(spawnWall()));
-    timer->start(2000);
+    timer->start(500);
 
 
      player->spawnWall();

@@ -3,7 +3,7 @@
 #define BUTTON_H
 
 #include <QPushButton>
-
+#include <QMouseEvent>
 
 
 //#include <QMainWindow>
@@ -12,7 +12,7 @@
 #include "Player.h"
 
 
-class Button: public QPushButton , public QGraphicsRectItem{ // public Player{ //to ensure there is only one Player object
+class Button: public QPushButton , public QGraphicsRectItem{ //, public QMouseEvent{ // public Player{ //to ensure there is only one Player object
 
 public:
 
@@ -29,6 +29,8 @@ private:
     QPushButton * my_button;
 
     QGraphicsRectItem * player;
+
+    QMouseEvent * press;
 
 
 //    void isClicked();

@@ -21,6 +21,8 @@ Player::Player(QGraphicsItem *parent): QGraphicsRectItem(parent){ //Player is ab
 
 
  //   goalSound = new QMediaPlayer();
+
+
 }
 
 
@@ -36,29 +38,29 @@ void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
                 //resetSound->play();
 //            qDebug()<<"collide check";
 
-            this->setPos(400, 790); //This is how to reset the player:
+            this->setPos(500, 900); //This is how to reset the player:
                       //(x ,  y  )
              }
             }
 
-    if (event->key() == Qt::Key_Left){
+    if (event->key() == Qt::Key_A){
         if(pos().x()>0){ // if the player reaches the bounds because scene's Left is origin x
             setPos(x()-20,y());
             }
     }
-    else if (event->key() == Qt::Key_Right){
-        if(pos().x() + 30 <800){ //30 is the player's right corner & 800 is the Viewscreen's right boundry
+    else if (event->key() == Qt::Key_D){
+        if(pos().x() <975){ //30 is the player's right corner & 800 is the Viewscreen's right boundry
         setPos(x()+20,y());
         }
     }
-   else if (event->key() == Qt::Key_Up){
+   else if (event->key() == Qt::Key_W){
 
         if(pos().y()>0){ //up boundary
         setPos(x(),y()-30);
         }
     }
-    else if (event->key() == Qt::Key_Down){ //prevent from using up and down
-        if(pos().y() +40 <800){ //"down boundary --adjust the 800 to a bigger number to go down further...
+    else if (event->key() == Qt::Key_S){ //prevent from using up and down
+        if(pos().y() <975){ //"down boundary --adjust the 800 to a bigger number to go down further...
         setPos(x(),y()+30);
         }
     }
