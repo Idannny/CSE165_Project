@@ -17,7 +17,8 @@ Button::Button(QPushButton *parent): QPushButton(parent){
 
     //connecting the button signal to the appropiate slot:
 
- //    connect(my_button, &QPushButton::released, this, &Button::handleButton);
+     connect(my_button, &QPushButton::clicked, this, &Button::handleButton);
+    // connect(my_button,SIGNAL(released()),this,SLOT(handleButton()));
 
 
 
@@ -25,13 +26,26 @@ Button::Button(QPushButton *parent): QPushButton(parent){
 
 //creating a function for the event of the button:
 
+
+
+void Button::resetPosition(){
+
+    player->setPos(400, 790);
+
+}
+
 void Button::handleButton(){
 
     //change the text
     my_button->setText("Something happens");
 
+   // player = new Player();
+
+
     //resize the Button:
     my_button->resize(100, 100);
+
+    //my_button->resetPosition();
 
     //can we change the position of the player?
 

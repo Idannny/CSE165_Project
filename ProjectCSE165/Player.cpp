@@ -36,7 +36,7 @@ void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
                 //resetSound->play();
 //            qDebug()<<"collide check";
 
-            this->setPos(400, 500); //This is how to reset the player:
+            this->setPos(400, 790); //This is how to reset the player:
                       //(x ,  y  )
              }
             }
@@ -58,7 +58,7 @@ void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
         }
     }
     else if (event->key() == Qt::Key_Down){ //prevent from using up and down
-        if(pos().y() +40 <600){ //"down boundary
+        if(pos().y() +40 <800){ //"down boundary --adjust the 800 to a bigger number to go down further...
         setPos(x(),y()+30);
         }
     }
@@ -83,5 +83,10 @@ void Player::spawnGoal()
 {
     Goal * endGoal = new Goal();
     scene() -> addItem(endGoal);//additem is member from Qgraphicsscene
+}
+
+void Player::resetPlayer(){
+
+    //player->setPos(400, 790);
 }
 

@@ -11,7 +11,7 @@
 
 //#include "Game.h"
 
-class Player: public QObject, virtual public QGraphicsRectItem{
+class Player: public QObject,  public QGraphicsRectItem{
     Q_OBJECT
 
 public:
@@ -21,6 +21,8 @@ public:
 public slots:
     void spawnWall(); //spawn is an event that will be created by extension
     void spawnGoal();
+    void resetPlayer();
+
 private:
   //  QMediaPlayer *resetSound;
 //    QMediaPlayer *goalSound;

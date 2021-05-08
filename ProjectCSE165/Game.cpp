@@ -16,18 +16,20 @@
 
 
 extern Game * game;
+
+
 //-Qgraphics TextItem setplainText() font and textcolor
 //GAME IS IN CHARGEOF ALL THE ITEMS TO POP UP
 
 Game::Game(QWidget * parent){
 
     scene = new QGraphicsScene();
-    scene->setSceneRect(0,0,1000,900); // make the scene 800x600 instead of infinity by infinity (default)
+    scene->setSceneRect(0,0,800,800); // make the scene 800x600 instead of infinity by infinity (default)
 
     setScene(scene);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setFixedSize(1000,900);
+    setFixedSize(800,800);
 
     //COLOR WINDOW
    // QColor * color;
@@ -51,7 +53,7 @@ Game::Game(QWidget * parent){
 
     player = new Player();
     player->setRect(0,0,25,25); // change the rect from 0x0 (default) to 100x100 pixels
-    player->setPos(400,500);                                                            // negative X is <-
+    player->setPos(400,780);                                                            // negative X is <-
                                                                                        //negative Y is ^
     // add the item to the scene
 
@@ -69,14 +71,24 @@ Game::Game(QWidget * parent){
 
     //SPAWN WAlls
 
-//      QTimer *timer = new QTimer();
-//    QObject::connect(timer,SIGNAL(timeout()),player, SLOT(spawn()));
+      QTimer * timer = new QTimer();
+     //Walls * wall = new Walls();
+    QObject::connect(timer,SIGNAL(timeout()),player, SLOT(spawnWall()));
+    timer->start(2000);
 
-  for(int i = 1; i<10; i++){
+
      player->spawnWall();
-  }
 
-    player->spawnGoal();
+
+  //for(int i = 1; i<10; i++){
+
+    // player->spawnWall();
+    //player->virtual timerEvent(spawnWall());
+
+  //}
+
+    player->spawnGoal(); //spawns the little goal
+
 //      player->spawn();
 //    timer -> start(1000);
 
