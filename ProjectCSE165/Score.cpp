@@ -7,9 +7,9 @@ Score::Score(QGraphicsItem *parent): QGraphicsTextItem(parent)
 
     //draw text //onlyworks when cpp has Qgraphics text Item
     setPlainText("Score: " + QString::number(score));
-    setDefaultTextColor(Qt::red);
+    setDefaultTextColor(Qt::black);
 
-    setFont(QFont("calibri", 16));
+    setFont(QFont("Times New Roman", 20));
 }
 
 void Score::increase()

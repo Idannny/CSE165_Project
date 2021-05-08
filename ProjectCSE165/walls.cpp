@@ -99,7 +99,7 @@ Walls::Walls(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent){
 
       connect(timer,SIGNAL(timeout()),this,SLOT(move())); // connect signal to object, bullet's constructor //every timeout bullet will move
 
-      timer->start(100); //every 25 ms timeout signals move to move bullet
+      timer->start(75); //every 25 ms timeout signals move to move bullet
 
      qDebug()<<"Moving first Block";
      //this->move();
