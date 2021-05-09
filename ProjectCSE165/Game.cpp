@@ -48,7 +48,7 @@ Game::Game(QWidget * parent){
        // my_button->showMaximized();
         my_button->setGeometry(QRect(QPoint(900,0) , QSize(100, 100))); //to set the block shown in the app window
         scene->addWidget(my_button); //To add the button onto the scene!!
-
+//        player->setFlag(QGraphicsItem::ItemIsFocusable);
     //CREATE NEW PLAYER
 
     player = new Player();

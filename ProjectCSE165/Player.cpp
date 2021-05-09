@@ -19,8 +19,6 @@ Player::Player(QGraphicsItem *parent): QGraphicsRectItem(parent){ //Player is ab
 //Attribute of player
     resetSound = new QMediaPlayer();
     resetSound->setMedia(QUrl("qrc:/audio/zoom.wav"));//https://mixkit.co/free-sound-effects/
-
-
     goalSound = new QMediaPlayer();
 
 

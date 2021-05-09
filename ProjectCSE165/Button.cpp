@@ -4,11 +4,6 @@
 extern Game * game;
 extern QMouseEvent * press;
 extern QGraphicsItem * player;
-//extern Player   * player;
-
-
-
-
 
 Button::Button(QPushButton *parent): QPushButton(parent){
     //creating the button:
@@ -22,9 +17,9 @@ Button::Button(QPushButton *parent): QPushButton(parent){
 
     //connecting the button signal to the appropiate slot:
 
-     connect(my_button, &QPushButton::clicked, this, &Button::resetPosition); //setting up a connection to check for a button click
-       // connect(my_button,SIGNAL(released()),this,SLOT(resetPosition()));
+     connect(my_button, &QPushButton::clicked, this, &Button::resetPosition);
 
+ qDebug()<<"button clicked";
 
 
 } //end of main button definition
@@ -35,8 +30,7 @@ Button::Button(QPushButton *parent): QPushButton(parent){
 
 void Button::resetPosition(){
 
-
-
+          qDebug()<<"button clicked";
 
    // connect(my_button,SIGNAL(clicked()),player, SLOT(handleButton()));
 
@@ -55,7 +49,7 @@ void Button::resetPosition(){
 void Button::handleButton(){
 
     //change the text
-
+ qDebug()<<"button clicked";
     my_button->setText("Reset Again?");
 
 
