@@ -1,7 +1,4 @@
 
-
-//#include "mainwindow.h"
-
 //#include <QGraphicsScene>
 //#include "Player.h" //extends QraphicsRect//PORTED TO GAME.CPP
 //#include <QGraphicsView>

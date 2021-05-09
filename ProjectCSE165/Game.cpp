@@ -8,6 +8,8 @@
 #include <QBrush>
 #include <QPushButton>
 //#include <QMediaPlayer>
+#include <QMovie>
+#include <QLabel>
 
 //#include "Enemy.h"
 //#include "Button.h"
@@ -96,9 +98,12 @@ Game::Game(QWidget * parent){
     player->spawnGoal(); //spawns the little goal
 
 
-//      player->spawn();
-//    timer -> start(1000);
-
+    //      player->spawn();
+        //    timer -> start(1000);
+//        QMovie *movie = new QMovie("qrc:/sprites/coin.gif");
+//    QLabel *processLabel = new QLabel(this);
+//    processLabel->setMovie(movie);
+//    movie->start();
 
     // Attempts at sound
       QMediaPlayer * music = new QMediaPlayer();

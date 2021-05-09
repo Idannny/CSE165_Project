@@ -167,7 +167,7 @@ void Walls::moveDown(){ //we also want different types of walls moving
                if (resetSound->state() == QMediaPlayer::PlayingState){
                           resetSound->setPosition(0);
                       }
-                      else if (resetSound->state() == QMediaPlayer::StoppedState){
+                      else if (resetSound->state() == QMediaPlayer::StoppedState){ //this will decide when music will play
                           resetSound->play();
                       }
 //               resetSound->play();
