@@ -4,11 +4,22 @@
 #include <QGraphicsScene>
 #include <QDebug>
 #include <QGraphicsItem>
+#include <QObject>
 #include <QList>
 #include <stdlib.h> //rand()
 
+extern  QGraphicsRectItem * rectangle1;
+extern Button * my_button;
+extern QGraphicsRectItem * rectangle2;
+//extern  QGraphicsRectItem * rectangle3;
 
+
+int random_number2 = rand() % 800;
 //WE SHOULD HAVE ENEMY TURRETS
+
+//############################################################
+//Bug Found: whenever you shoot a wall on the left side of the screen... it cuts through the shape.
+//###############################################################
 
 Walls::Walls(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent){
 
@@ -16,7 +27,8 @@ Walls::Walls(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent){
 
     //WALLS
     // random spawn pos
-     int random_x = rand() % 900; //create random enemy within screen
+/*
+     int random_x = rand() % 800; //create random enemy within screen
      int random_y = rand() % 800;
 
      qDebug()<<" ORIGINAL x: "<<random_x<<"y: " <<random_y;
@@ -71,14 +83,65 @@ Walls::Walls(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent){
 //     }
 
 
+*/
+
 
 
     // connect
     QTimer * timer = new QTimer(this);
 
-   connect(timer,SIGNAL(timeout()),this,SLOT(move())); // connect signal to object, bullet's constructor //every timeout bullet will move
+        int random_number = rand() % 950;
 
-   timer->start(25); //every 25 ms timeout signals move to move bullet
+    setPos(random_number,50);
+
+    setRect(0,0,50,50);
+
+     qDebug()<<"Wall 1 INSIDE x: "<<random_number<<"y: " <<y();
+
+      connect(timer,SIGNAL(timeout()),this,SLOT(move())); // connect signal to object, bullet's constructor //every timeout bullet will move
+
+      timer->start(75); //every 25 ms timeout signals move to move bullet
+
+     qDebug()<<"Moving first Block";
+     //this->move();
+
+     //setPos(x() + 5, y() + 0);
+
+    // timer->start(250);
+
+    // setPos(x() + 10, y() );
+
+       qDebug()<<"After 1st block";
+
+
+
+
+
+/*
+    //QTimer * timer2 = new QTimer(this);
+
+       setPos(500,random_number2);
+
+
+       setRect(0,0,100,100);
+
+
+     qDebug()<<"Wall 2 INSIDE x: "<<500<<"y: " <<random_number2;
+
+
+   //connect(timer2 ,SIGNAL(timeout()),this,SLOT(move2()));
+
+
+
+   //timer2->start(25);
+
+     this->move2();
+
+
+   qDebug()<<"Test";
+
+//}
+*/
 
 }
 
@@ -86,7 +149,22 @@ Walls::Walls(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent){
 
 void Walls::move(){ //we also want different types of walls moving
 
-//          setPos(x(),y()); //WILL MAKE WALS MOVE
+         // setPos(x() + 50 ,y() + 50); //WILL MAKE WALS MOVE
+
+    //while(){
+
+
+
+
+setPos(x() , y() + 30);
+
+//setRect(0,0,100,100);
+
+//setPos(x() + 0,y() + 0);
+
+
+    //this->move2();
+
 
     //when bullets move off the screen delete them waste of memoory
     if (pos().y() + rect().height() < 0 ){// 0 is origin for y (Topleft)// with rect().height()we now have that after the size of the
@@ -95,4 +173,31 @@ void Walls::move(){ //we also want different types of walls moving
 //        qDebug() << "Bullet dead";
     }
 
+
+
+}
+
+
+void Walls::move2(){ //we also want different types of walls moving
+
+         // setPos(x() + 50 ,y() + 50); //WILL MAKE WALS MOVE
+
+
+   // rectangle2->setRect(0,0,100,100);
+
+    setPos(x()+ 0, y() + 0);
+
+    setRect(0,0,100,100);
+    setPos(x() + 10,y() + 0);
+     //rectangle2->setPos(x(),y()+ 10);
+
+/*
+    //when bullets move off the screen delete them waste of memoory
+    if (pos().y() + rect().height() < 0 ){// 0 is origin for y (Topleft)// with rect().height()we now have that after the size of the
+        scene() -> removeItem(this);
+        delete this;
+//        qDebug() << "Bullet dead";
+    }
+
+    */
 }

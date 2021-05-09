@@ -37,7 +37,7 @@ void Bullet::moveUp(){
 
 
     for (int i = 0, n = colliding_items.size(); i<n; i++){
-        if(typeid(*(colliding_items[i])) == typeid(Walls)){
+        if(typeid(*(colliding_items[i])) == typeid(Goal)){
                 //remove both
 //              // count++;
                  game->score->increase();

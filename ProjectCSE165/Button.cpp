@@ -1,6 +1,11 @@
 //#include "Button.h" //including our button header file
 #include "Game.h"
 
+extern Game * game;
+extern QMouseEvent * press;
+extern QGraphicsItem * player;
+//extern Player   * player;
+
 
 
 
@@ -17,7 +22,8 @@ Button::Button(QPushButton *parent): QPushButton(parent){
 
     //connecting the button signal to the appropiate slot:
 
- //    connect(my_button, &QPushButton::released, this, &Button::handleButton);
+     connect(my_button, &QPushButton::clicked, this, &Button::resetPosition); //setting up a connection to check for a button click
+       // connect(my_button,SIGNAL(released()),this,SLOT(resetPosition()));
 
 
 
@@ -25,13 +31,48 @@ Button::Button(QPushButton *parent): QPushButton(parent){
 
 //creating a function for the event of the button:
 
+
+
+void Button::resetPosition(){
+
+
+
+
+   // connect(my_button,SIGNAL(clicked()),player, SLOT(handleButton()));
+
+     game->player->setPos(500, 975); //so the player in game, movesd to the desired position
+
+        connect(my_button, &QPushButton::released, this, &Button::handleButton);
+
+
+
+    //game->releaseMouse();
+
+    //game->update();
+
+}
+
 void Button::handleButton(){
 
     //change the text
-    my_button->setText("Something happens");
+
+    my_button->setText("Reset Again?");
+
+
+
+   // player = new Player();
+
 
     //resize the Button:
     my_button->resize(100, 100);
+
+    player = new Player();
+    Player(keyPressEvent()); //trying to fix the error where if i click it doesnt let me use the keyboard...
+
+    //my_button->resetPosition();
+
+    //connect(my_button, &QPushButton::clicked, player, &Button::resetPosition);
+   //QPushButton::connect(my_button,SIGNAL(clicked), player, SLOT(resetPosition()));
 
     //can we change the position of the player?
 
