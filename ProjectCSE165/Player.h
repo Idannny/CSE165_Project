@@ -7,7 +7,7 @@
 
 #include <QGraphicsItem>
 #include <QObject>
-//#include <QMediaPlayer>
+#include <QMediaPlayer>
 
 //#include "Game.h"
 
@@ -24,8 +24,8 @@ public slots:
     void resetPlayer();
 
 private:
-  //  QMediaPlayer *resetSound;
-//    QMediaPlayer *goalSound;
+    QMediaPlayer *resetSound;
+    QMediaPlayer *goalSound;
 
 };
 

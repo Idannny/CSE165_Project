@@ -17,11 +17,11 @@
 Player::Player(QGraphicsItem *parent): QGraphicsRectItem(parent){ //Player is able to use in main
 
 //Attribute of player
-   // resetSound = new QMediaPlayer();
-   // resetSound->setMedia(QUrl("qrc:/audio/zoom.wav"));//https://mixkit.co/free-sound-effects/
+    resetSound = new QMediaPlayer();
+    resetSound->setMedia(QUrl("qrc:/audio/zoom.wav"));//https://mixkit.co/free-sound-effects/
 
 
- //   goalSound = new QMediaPlayer();
+    goalSound = new QMediaPlayer();
 
 
 }
@@ -31,13 +31,13 @@ Player::Player(QGraphicsItem *parent): QGraphicsRectItem(parent){ //Player is ab
 void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and right with boudaries:
 
    QList<QGraphicsItem *> colliding_items = collidingItems(); //we cand find what the bullet is colliding with
-
+ QList<QGraphicsItem *> coinCollect= collidingItems();
 
     for (int i = 0, n = colliding_items.size(); i<n; i++){ //when player hits walls
         if(typeid(*(colliding_items[i])) == typeid(Walls)){
 
-                //resetSound->play();
-//            qDebug()<<"collide check";
+               resetSound->play();
+//         qDebug()<<"collide check";
 
             this->setPos(400, 500); //This is how to reset the player:
                       //(x ,  y  )
@@ -45,8 +45,8 @@ void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
             }
 
 
-    for (int i = 0, n = colliding_items.size(); i<n; i++){ //when player hits walls
-        if(typeid(*(colliding_items[i])) == typeid(Goal)){
+    for (int i = 0, n = coinCollect.size(); i<n; i++){ //when player hits walls
+        if(typeid(*(coinCollect[i])) == typeid(Goal)){
 
                 //resetSound->play();
           qDebug()<<"goal check";

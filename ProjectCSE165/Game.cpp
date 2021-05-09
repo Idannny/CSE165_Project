@@ -7,7 +7,7 @@
 #include <QColor>
 #include <QBrush>
 #include <QPushButton>
-#include <QMediaPlayer>
+//#include <QMediaPlayer>
 
 //#include "Enemy.h"
 //#include "Button.h"
