@@ -11,10 +11,14 @@
 Game * game;//CLASS game is from game.h is now parenting main.cpp
 
 int main(int argc, char *argv[]){
+
+    QApplication title(argc, argv);
     QApplication videoGame(argc, argv);
 
-    game = new Game();
-    game->show();
+
+
+    //game = new Game();
+    //game->show();
 
     return videoGame.exec(); //execution of the command
 
