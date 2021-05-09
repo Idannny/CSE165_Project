@@ -1,4 +1,4 @@
-//#include <Player.h>
+
 #include "Game.h"
 #include <QTimer>
 #include <QGraphicsScene>
@@ -10,14 +10,19 @@
 
 extern Score* score;
 extern Game * game; //ALLOWS WALLS TO DESTROY PLAYER
-//extern Player *player;
+
+
+
 extern  QGraphicsRectItem * rectangle1;
 extern Button * my_button;
 extern QGraphicsRectItem * rectangle2;
+
+
 //extern  QGraphicsRectItem * rectangle3;
 
 
-int random_number2 = rand() % 800;
+//t random_number2 = rand() % 800;\
+
 //WE SHOULD HAVE ENEMY TURRETS
 
 //############################################################
@@ -27,9 +32,44 @@ int random_number2 = rand() % 800;
 
 Walls::Walls(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent){
 
+    //eding a sound to reset with:
+
     resetSound = new QMediaPlayer();
 
     resetSound->setMedia(QUrl("qrc:/audio/zoom.wav"));
+
+
+
+    //to generate the walls we see in the game:
+
+    QTimer * timer = new QTimer(this);
+
+    int random_number = rand() % 950;
+
+    setPos(random_number,50);
+
+    setRect(0,0,50,50);
+
+    //     qDebug()<<"Wall 1 INSIDE x: "<<random_number<<"y: " <<y();
+    //if(character picks up a )
+
+
+    // connect signal to object, bullet's constructor //every timeout bullet will move
+
+
+    if(game->score->getScore()>=0){ //if a player's score is 0:
+        connect(timer,SIGNAL(timeout()),this,SLOT(moveDown()));
+        timer->start(75);
+        //every 75 ms timeout signals move to move bullet
+    }
+
+    //game gets a step harder when you get a point:
+
+    if(game->score->getScore() >= 1){
+        connect(timer,SIGNAL(timeout()),this,SLOT(moveLeft()));
+        timer->start(105);
+    }
+
 
     //    //WALLS
     //    // random spawn pos
@@ -89,56 +129,25 @@ Walls::Walls(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent){
     ////     }
 
 
+    //code we have let go of:
+
+    // connect(timer,SIGNAL(timeout()),this,SLOT(moveLeft()));
+    // timer1->start(25);
 
 
 
+    //     qDebug()<<"Moving first Block";
+    //this->move();
 
-    // connect
-    QTimer * timer = new QTimer(this);
-//QTimer * timer1 = new QTimer(this);
-
-        int random_number = rand() % 950;
-
-    setPos(random_number,50);
-
-    setRect(0,0,50,50);
-
-//     qDebug()<<"Wall 1 INSIDE x: "<<random_number<<"y: " <<y();
-//if(character picks up a )
-
-
-     // connect signal to object, bullet's constructor //every timeout bullet will move
-
-    if(game->score->getScore()>=0){ //if a player's score is greator than 1
-        connect(timer,SIGNAL(timeout()),this,SLOT(moveDown()));
-        timer->start(75);
-     //every 75 ms timeout signals move to move bullet
-}
-    if(game->score->getScore() >= 1){
-        connect(timer,SIGNAL(timeout()),this,SLOT(moveLeft()));
-        timer->start(105);
-    }
-// connect(timer,SIGNAL(timeout()),this,SLOT(moveLeft()));
-// timer1->start(25);
-
-
-
-//     qDebug()<<"Moving first Block";
-     //this->move();
-
-     //setPos(x() + 5, y() + 0);
+    //setPos(x() + 5, y() + 0);
 
     // timer->start(250);
 
     // setPos(x() + 10, y() );
 
-//       qDebug()<<"After 1st block";
+    //       qDebug()<<"After 1st block";
 
-
-
-
-
-/*
+    /*
     //QTimer * timer2 = new QTimer(this);
 
        setPos(500,random_number2);
@@ -153,6 +162,8 @@ Walls::Walls(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent){
 //}
 */
 
+
+
 }
 
 
@@ -160,68 +171,58 @@ Walls::Walls(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent){
 void Walls::moveDown(){ //we also want different types of walls moving
 
 
-     QList<QGraphicsItem *> wallHitsPlayer = collidingItems();
+    QList<QGraphicsItem *> wallHitsPlayer = collidingItems();
 
     for (int i = 0, n = wallHitsPlayer.size(); i<n; i++){
         if(typeid(*(wallHitsPlayer[i])) == typeid(Player)){
 
-               game->score->decrease();
-               game->player->setPos(400, 500);
+            game->score->decrease();
+            game->player->setPos(400, 500);
 
-               if (resetSound->state() == QMediaPlayer::PlayingState){
-                          resetSound->setPosition(0);
-                }
+            if (resetSound->state() == QMediaPlayer::PlayingState){
+                resetSound->setPosition(0);
+            }
 
-               else if (resetSound->state() == QMediaPlayer::StoppedState){ //this will decide when music will play
-                          resetSound->play();
-               }
+            else if (resetSound->state() == QMediaPlayer::StoppedState){ //this will decide when music will play
+                resetSound->play();
+            }
 
-//               resetSound->play();
 
-                delete this;
+            delete this;
 
-                return;//no memory errors
+            return;//no memory errors
         }
     }
 
-    //while(){
-
-setPos(x() , y() + 30);
-
-//setRect(0,0,100,100);
-
-//setPos(x() + 0,y() + 0);
 
 
-    //this->move2();
+    setPos(x() , y() + 30);
 
 
     //when blocks move off the screen delete them waste of memoory
     if (pos().y() + rect().height() < 0 ){// 0 is origin for y (Topleft)// with rect().height()we now have that after the size of the
         scene() -> removeItem(this);
         delete this;
-//        qDebug() << "Bullet dead";
+        qDebug() << "Bullet dead";
     }
 
 
 
-}
+} //end of move Down
 
 
 void Walls::moveLeft(){ //we also want different types of walls moving
 
-          setPos(x() + 50 ,y());
+    setPos(x() + 50 ,y());
 
-
-   // rectangle2->setRect(0,0,100,100);
 
     setPos(x()+ 0, y() + 0);
 
     setRect(0,0,100,100);
     setPos(x() + 10,y() + 0);
-     //rectangle2->setPos(x(),y()+ 10);
+    //rectangle2->setPos(x(),y()+ 10);
 
-/*
+    /*
     //when bullets move off the screen delete them waste of memoory
     if (pos().y() + rect().height() < 0 ){// 0 is origin for y (Topleft)// with rect().height()we now have that after the size of the
         scene() -> removeItem(this);
@@ -230,4 +231,4 @@ void Walls::moveLeft(){ //we also want different types of walls moving
     }
 
     */
-}
+} //end of move Left

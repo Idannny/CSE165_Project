@@ -3,9 +3,11 @@
 
 Score::Score(QGraphicsItem *parent): QGraphicsTextItem(parent)
 { // this will have a parent too
-    score = 0;
 
-    //draw text //onlyworks when cpp has Qgraphics text Item
+    score = 0; //intitially starting at 0
+
+    //draw text - onlyworks when cpp has Qgraphics text Item
+
     setPlainText("Score: " + QString::number(score));
     setDefaultTextColor(Qt::black);
 
@@ -14,19 +16,25 @@ Score::Score(QGraphicsItem *parent): QGraphicsTextItem(parent)
 
 void Score::increase()
 {
-    score++;
-     setPlainText(QString("Score: ") + QString::number(score)); // Score: 1
 
-     //lets increase when we hit the circle?
+    //###############################################################
+    //IDEA:
+    //lets increase when we hit the circle?
+    //###############################################################
+
+    score++;
+    setPlainText(QString("Score: ") + QString::number(score)); // Score: 1
+
+
 }
 
 void Score::decrease()
 {
     score = 0;
-      setPlainText(QString("Score: ") + QString::number(score));
+    setPlainText(QString("Score: ") + QString::number(score)); //decreasing the score
 }
 
 int Score::getScore()
 {
-    return score;
+    return score; //gathering our score
 }
