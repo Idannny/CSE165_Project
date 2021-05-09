@@ -12,7 +12,7 @@
 //#include <QMediaPlayer>
 
 //Game Mechanics:
-
+extern Game* game;
 
 Player::Player(QGraphicsItem *parent): QGraphicsRectItem(parent){ //Player is able to use in main
 
@@ -43,8 +43,8 @@ void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
                 else if (goalSound->state() == QMediaPlayer::StoppedState){
                     goalSound->play();
                 }
-
-          qDebug()<<"coin check";
+            game->score->increase();
+//          qDebug()<<"coin check";
          delete coinCollect[i];
 
 
