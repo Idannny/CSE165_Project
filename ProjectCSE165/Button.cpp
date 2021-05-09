@@ -17,7 +17,7 @@ Button::Button(QPushButton *parent): QPushButton(parent){
 
     //setting the size and location of the button:
 
-    my_button->setGeometry(QRect(QPoint(0,0) , QSize(100, 100))); //a rectangle at point (0,0) and size (100x100)
+    my_button->setGeometry(QRect(QPoint(100,100) , QSize(100, 100))); //a rectangle at point (0,0) and size (100x100)
 
 
     //connecting the button signal to the appropiate slot:
@@ -40,7 +40,7 @@ void Button::resetPosition(){
 
    // connect(my_button,SIGNAL(clicked()),player, SLOT(handleButton()));
 
-     game->player->setPos(500, 975); //so the player in game, movesd to the desired position
+     game->player->setPos(500, 600); //so the player in game, movesd to the desired position
 
         connect(my_button, &QPushButton::released, this, &Button::handleButton);
 

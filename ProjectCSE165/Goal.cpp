@@ -10,15 +10,6 @@ extern Score * score;
 
 Goal::Goal(QGraphicsItem *parent): QObject(), QGraphicsEllipseItem(parent){
 
-   // scene->addItem(getScore());
-
-    Score(getScore());
-
-
-
-//trying to implement a while loop to keep generating coins:
-
-
 
      int random_x = rand() % 900; //create random enemy within screen
      int random_y = rand() % 900;
@@ -27,7 +18,7 @@ Goal::Goal(QGraphicsItem *parent): QObject(), QGraphicsEllipseItem(parent){
      qDebug()<<"x: "<< random_x << "y: " << random_y;
 
      //if(random_x < 400 || random_x > 500){ // wont spawn on character
-//         random_x = 200;
+         random_x = 200;
 
          qDebug()<<"Goal INSIDE x: "<<random_x<< " y: " <<random_y;
          setPos(random_x,random_y);
@@ -39,6 +30,7 @@ Goal::Goal(QGraphicsItem *parent): QObject(), QGraphicsEllipseItem(parent){
 void Goal::move()
 {
 //      setPos(100,100);
+
 }
 
 

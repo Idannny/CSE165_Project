@@ -6,6 +6,7 @@
 //#include "Bullet.h"
 //#include "Button.h"
 //#include "Enemy.h"
+#include "Goal.h"
 #include <QList>
 #include <QDebug>
 
@@ -38,7 +39,19 @@ void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
                 //resetSound->play();
 //            qDebug()<<"collide check";
 
-            this->setPos(500, 900); //This is how to reset the player:
+            this->setPos(400, 500); //This is how to reset the player:
+                      //(x ,  y  )
+             }
+            }
+
+
+    for (int i = 0, n = colliding_items.size(); i<n; i++){ //when player hits walls
+        if(typeid(*(colliding_items[i])) == typeid(Goal)){
+
+                //resetSound->play();
+          qDebug()<<"goal check";
+
+            //This is how to reset the player:
                       //(x ,  y  )
              }
             }
@@ -84,7 +97,7 @@ void Player::spawnWall(){ //to spawn the enemy as rectangular objects: similar t
 void Player::spawnGoal()
 {
     Goal * endGoal = new Goal();
-    scene() -> addItem(endGoal);//additem is member from Qgraphicsscene
+    scene() -> addItem(endGoal);//
 }
 
 void Player::resetPlayer(){

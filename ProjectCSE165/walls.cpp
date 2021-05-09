@@ -96,13 +96,13 @@ Walls::Walls(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent){
 
     setRect(0,0,50,50);
 
-     qDebug()<<"Wall 1 INSIDE x: "<<random_number<<"y: " <<y();
+//     qDebug()<<"Wall 1 INSIDE x: "<<random_number<<"y: " <<y();
 
       connect(timer,SIGNAL(timeout()),this,SLOT(move())); // connect signal to object, bullet's constructor //every timeout bullet will move
 
       timer->start(75); //every 25 ms timeout signals move to move bullet
 
-     qDebug()<<"Moving first Block";
+//     qDebug()<<"Moving first Block";
      //this->move();
 
      //setPos(x() + 5, y() + 0);
@@ -111,7 +111,7 @@ Walls::Walls(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent){
 
     // setPos(x() + 10, y() );
 
-       qDebug()<<"After 1st block";
+//       qDebug()<<"After 1st block";
 
 
 

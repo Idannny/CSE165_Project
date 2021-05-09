@@ -7,7 +7,7 @@
 #include <QColor>
 #include <QBrush>
 #include <QPushButton>
-//#include <QMediaPlayer>
+#include <QMediaPlayer>
 
 //#include "Enemy.h"
 //#include "Button.h"
@@ -24,12 +24,12 @@ extern Game * game;
 Game::Game(QWidget * parent){
 
     scene = new QGraphicsScene();
-    scene->setSceneRect(0,0,800,600); // make the scene 800x600 instead of infinity by infinity (default)
+    scene->setSceneRect(0,0,1000,800); // make the scene 800x600 instead of infinity by infinity (default)
 
     setScene(scene);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setFixedSize(800,600);
+    setFixedSize(1000,800);
 
     //COLOR WINDOW
    // QColor * color;
@@ -99,12 +99,12 @@ Game::Game(QWidget * parent){
 //    timer -> start(1000);
 
 
-    /* Attempts at sound
+    // Attempts at sound
       QMediaPlayer * music = new QMediaPlayer();
       music->setMedia(QUrl("qrc:/audio/back.wav")); //https://ia802607.us.archive.org/23/items/soundkeeperrecordings-formats/sr002-01-16
      music->setVolume(15);
       music->play();
-    */
+
       show();
 
 }
