@@ -26,7 +26,9 @@ int random_number2 = rand() % 800;
 
 Walls::Walls(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent){
 
+    resetSound = new QMediaPlayer();
 
+    resetSound->setMedia(QUrl("qrc:/audio/zoom.wav"));
 
     //WALLS
     // random spawn pos
@@ -162,7 +164,12 @@ void Walls::moveDown(){ //we also want different types of walls moving
                  game->score->decrease();
 
                game->player->setPos(400, 500);
-
+               if (resetSound->state() == QMediaPlayer::PlayingState){
+                          resetSound->setPosition(0);
+                      }
+                      else if (resetSound->state() == QMediaPlayer::StoppedState){
+                          resetSound->play();
+                      }
 //               resetSound->play();
 
                 delete this;

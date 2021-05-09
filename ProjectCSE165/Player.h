@@ -24,7 +24,7 @@ public slots:
     void resetPlayer();
 
 private:
-//    QMediaPlayer *resetSound;
+
     QMediaPlayer* goalSound;
 
 };

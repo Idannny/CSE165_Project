@@ -25,7 +25,7 @@ public slots: //a member function that can be accesed by .cpp
     void move2();
 
 private:
-//QMediaPlayer *resetSound;
+QMediaPlayer *resetSound;
     //refactor, adds definition to bullet.cpp
 };
 
