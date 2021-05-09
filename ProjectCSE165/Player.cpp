@@ -113,6 +113,5 @@ void Player::resetPlayer(){
 
     //new Player();
     // QPushButton::connect(my_button,SIGNAL(clicked()),game, SLOT(Button()));
-
-     QObject::connect(game,SIGNAL(released()),game, SLOT(Player()));
+//     QObject::connect(game,SIGNAL(released()),game, SLOT(Player()));
 }

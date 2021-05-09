@@ -6,6 +6,8 @@
     </qresource>
     <qresource prefix="/sprites">
         <file>coin.gif</file>
+        <file>warrants.png</file>
+        <file>car.png</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

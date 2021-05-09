@@ -29,7 +29,6 @@ private:
     QPushButton * my_button;
 
     //QGraphicsRectItem * player;
-
     //QMouseEvent * press;
 
 
