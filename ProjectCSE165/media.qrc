@@ -2,5 +2,6 @@
     <qresource prefix="/audio">
         <file>back.wav</file>
         <file>zoom.wav</file>
+        <file>coin.wav</file>
     </qresource>
 </RCC>

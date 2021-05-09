@@ -8,6 +8,8 @@
 #include <QList>
 #include <stdlib.h> //rand()
 
+extern Game * game; //ALLOWS WALLS TO DESTROY PLAYER
+//extern Player *player;
 extern  QGraphicsRectItem * rectangle1;
 extern Button * my_button;
 extern QGraphicsRectItem * rectangle2;
@@ -20,6 +22,7 @@ int random_number2 = rand() % 800;
 //############################################################
 //Bug Found: whenever you shoot a wall on the left side of the screen... it cuts through the shape.
 //###############################################################
+
 
 Walls::Walls(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent){
 
@@ -98,7 +101,7 @@ Walls::Walls(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent){
 
 //     qDebug()<<"Wall 1 INSIDE x: "<<random_number<<"y: " <<y();
 
-      connect(timer,SIGNAL(timeout()),this,SLOT(move())); // connect signal to object, bullet's constructor //every timeout bullet will move
+      connect(timer,SIGNAL(timeout()),this,SLOT(moveDown())); // connect signal to object, bullet's constructor //every timeout bullet will move
 
       timer->start(75); //every 25 ms timeout signals move to move bullet
 
@@ -147,9 +150,26 @@ Walls::Walls(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent){
 
 
 
-void Walls::move(){ //we also want different types of walls moving
+void Walls::moveDown(){ //we also want different types of walls moving
 
-         // setPos(x() + 50 ,y() + 50); //WILL MAKE WALS MOVE
+
+     QList<QGraphicsItem *> wallHitsPlayer = collidingItems();
+
+    for (int i = 0, n = wallHitsPlayer.size(); i<n; i++){
+        if(typeid(*(wallHitsPlayer[i])) == typeid(Player)){
+                //remove both
+//              // count++;
+                 game->score->decrease();
+
+               game->player->setPos(400, 500);
+
+//               resetSound->play();
+
+                delete this;
+
+                return;//no memory errors
+        }
+    }
 
     //while(){
 
@@ -177,7 +197,7 @@ setPos(x() , y() + 30);
 
 void Walls::move2(){ //we also want different types of walls moving
 
-         // setPos(x() + 50 ,y() + 50); //WILL MAKE WALS MOVE
+          setPos(x() + 50 ,y() + 50); //WILL MAKE WALS MOVE
 
 
    // rectangle2->setRect(0,0,100,100);

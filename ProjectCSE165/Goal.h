@@ -6,7 +6,7 @@
 #include <QGraphicsEllipseItem>
 #include <QObject> //any object using signals (line 12-13) and slots needs this
 
-
+#include "Player.h"
 class Goal: public QObject,public QGraphicsEllipseItem{
     Q_OBJECT //Macro
 

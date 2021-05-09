@@ -29,6 +29,13 @@ Goal::Goal(QGraphicsItem *parent): QObject(), QGraphicsEllipseItem(parent){
 
 void Goal::move()
 {
+    QList<QGraphicsItem *> coinCollect = collidingItems();
+    for (int i = 0, n = coinCollect.size(); i<n; i++){ //when player hits walls
+        if(typeid(*(coinCollect[i])) == typeid(Goal)){
+
+          qDebug()<<"goal check";
+             }
+            }
 //      setPos(100,100);
 
 }

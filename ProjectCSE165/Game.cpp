@@ -76,6 +76,7 @@ Game::Game(QWidget * parent){
 
       QTimer * timer = new QTimer();
      //Walls * wall = new Walls();
+
     QObject::connect(timer,SIGNAL(timeout()),player, SLOT(spawnWall()));
     timer->start(500);
 
@@ -102,7 +103,7 @@ Game::Game(QWidget * parent){
     // Attempts at sound
       QMediaPlayer * music = new QMediaPlayer();
       music->setMedia(QUrl("qrc:/audio/back.wav")); //https://ia802607.us.archive.org/23/items/soundkeeperrecordings-formats/sr002-01-16
-     music->setVolume(15);
+      music->setVolume(5);
       music->play();
 
       show();

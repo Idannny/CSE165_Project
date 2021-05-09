@@ -9,7 +9,7 @@
 #include "Goal.h"
 #include <QList>
 #include <QDebug>
-
+//#include <QMediaPlayer>
 
 //Game Mechanics:
 
@@ -17,10 +17,12 @@
 Player::Player(QGraphicsItem *parent): QGraphicsRectItem(parent){ //Player is able to use in main
 
 //Attribute of player
-    resetSound = new QMediaPlayer();
-    resetSound->setMedia(QUrl("qrc:/audio/zoom.wav"));//https://mixkit.co/free-sound-effects/
+//    resetSound = new QMediaPlayer();
+//    resetSound->setMedia(QUrl("qrc:/audio/zoom.wav"));//https://mixkit.co/free-sound-effects/
+
     goalSound = new QMediaPlayer();
 
+    goalSound->setMedia(QUrl("qrc:/audio/coin.wav"));
 
 }
 
@@ -28,31 +30,30 @@ Player::Player(QGraphicsItem *parent): QGraphicsRectItem(parent){ //Player is ab
 
 void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and right with boudaries:
 
-   QList<QGraphicsItem *> colliding_items = collidingItems(); //we cand find what the bullet is colliding with
+
+
+
  QList<QGraphicsItem *> coinCollect= collidingItems();
 
-    for (int i = 0, n = colliding_items.size(); i<n; i++){ //when player hits walls
-        if(typeid(*(colliding_items[i])) == typeid(Walls)){
+    for (int i = 0, n = coinCollect.size(); i<n; i++){ //when player hits coin
+     if(typeid(*(coinCollect[i])) == typeid(Goal)){
+         if (goalSound->state() == QMediaPlayer::PlayingState){
+                    goalSound->setPosition(0);
+                }
+                else if (goalSound->state() == QMediaPlayer::StoppedState){
+                    goalSound->play();
+                }
 
-               resetSound->play();
-//         qDebug()<<"collide check";
+          qDebug()<<"coin check";
+         delete coinCollect[i];
 
-            this->setPos(400, 500); //This is how to reset the player:
-                      //(x ,  y  )
+
+          return;
              }
-            }
+          }
 
 
-    for (int i = 0, n = coinCollect.size(); i<n; i++){ //when player hits walls
-        if(typeid(*(coinCollect[i])) == typeid(Goal)){
 
-                //resetSound->play();
-          qDebug()<<"goal check";
-
-            //This is how to reset the player:
-                      //(x ,  y  )
-             }
-            }
 
     if (event->key() == Qt::Key_A){
         if(pos().x()>0){ // if the player reaches the bounds because scene's Left is origin x
