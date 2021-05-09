@@ -21,7 +21,7 @@ extern QGraphicsRectItem * rectangle2;
 //extern  QGraphicsRectItem * rectangle3;
 
 
-//t random_number2 = rand() % 800;\
+// random_number2 = rand() % 800;\
 
 //WE SHOULD HAVE ENEMY TURRETS
 
