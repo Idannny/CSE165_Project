@@ -26,12 +26,12 @@ extern Game * game;
 Game::Game(QWidget * parent){
 
     scene = new QGraphicsScene();
-    scene->setSceneRect(0,0,1000,900); // make the scene 800x600 instead of infinity by infinity (default)
+    scene->setSceneRect(0,0,1000,1000); //make the scene 800x600 instead of infinity by infinity (default)
 
     setScene(scene);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setFixedSize(1000,900);
+    setFixedSize(1000,1000);
 
     //COLOR WINDOW
    // QColor * color;
@@ -39,23 +39,28 @@ Game::Game(QWidget * parent){
 
 
     //titleworks
-         setWindowTitle("Final Game");
+         setWindowTitle("Insert Game Title HERE");
          show();
 
 
     //adding the button onto the game:
 
-        my_button = new Button; //a new object of Button
+        my_button = new Button(); //a new object of Button
 
        // my_button->showMaximized();
         my_button->setGeometry(QRect(QPoint(900,0) , QSize(100, 100))); //to set the block shown in the app window
         scene->addWidget(my_button); //To add the button onto the scene!!
+
+        //seeing if the reset button can work:
+         QPushButton::connect(my_button,SIGNAL(clicked()),game, SLOT(Button()));
+
+
 //        player->setFlag(QGraphicsItem::ItemIsFocusable);
     //CREATE NEW PLAYER
 
     player = new Player();
     player->setRect(0,0,25,25); // change the rect from 0x0 (default) to 100x100 pixels
-    player->setPos(400,500);                                                            // negative X is <-
+    player->setPos(400,975);                                                            // negative X is <-
                                                                                        //negative Y is ^
     // add the item to the scene
 
@@ -67,8 +72,7 @@ Game::Game(QWidget * parent){
     scene->addItem(player);
    // setting location of the player according to window view
 
-    //seeing if the reset button can work:
-     QPushButton::connect(my_button,SIGNAL(clicked()),player, SLOT(Button()));
+
 
 //SCORE UPDATE
      score = new Score();

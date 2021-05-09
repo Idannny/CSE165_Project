@@ -7,4 +7,5 @@
     <qresource prefix="/sprites">
         <file>coin.gif</file>
     </qresource>
+    <qresource prefix="/"/>
 </RCC>

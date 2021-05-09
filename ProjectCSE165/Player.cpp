@@ -12,7 +12,11 @@
 //#include <QMediaPlayer>
 
 //Game Mechanics:
-extern Game* game;
+
+extern Game * game;
+extern QMouseEvent * press;
+extern Player * player;
+
 
 Player::Player(QGraphicsItem *parent): QGraphicsRectItem(parent){ //Player is able to use in main
 
@@ -56,25 +60,27 @@ void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
 
 
 
+
+
     if (event->key() == Qt::Key_A){
         if(pos().x()>0){ // if the player reaches the bounds because scene's Left is origin x
-            setPos(x()-20,y());
+            setPos(x()-15,y());
             }
     }
     else if (event->key() == Qt::Key_D){
         if(pos().x() <975){ //30 is the player's right corner & 800 is the Viewscreen's right boundry
-        setPos(x()+20,y());
+        setPos(x()+15,y());
         }
     }
    else if (event->key() == Qt::Key_W){
 
         if(pos().y()>0){ //up boundary
-        setPos(x(),y()-30);
+        setPos(x(),y()-15);
         }
     }
     else if (event->key() == Qt::Key_S){ //prevent from using up and down
         if(pos().y() <975){ //"down boundary --adjust the 800 to a bigger number to go down further...
-        setPos(x(),y()+30);
+        setPos(x(),y()+15);
         }
     }
     else if (event->key() == Qt::Key_Space){
@@ -84,6 +90,7 @@ void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
 
         scene()->addItem(bullet);
     }
+
 }
 
 void Player::spawnWall(){ //to spawn the enemy as rectangular objects: similar to user
@@ -102,6 +109,10 @@ void Player::spawnGoal()
 
 void Player::resetPlayer(){
 
-    //player->setPos(400, 790);
-}
+    setPos(400, 975);
 
+    //new Player();
+    // QPushButton::connect(my_button,SIGNAL(clicked()),game, SLOT(Button()));
+
+     QObject::connect(game,SIGNAL(released()),game, SLOT(Player()));
+}

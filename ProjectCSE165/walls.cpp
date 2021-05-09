@@ -177,7 +177,7 @@ void Walls::moveDown(){ //we also want different types of walls moving
         if(typeid(*(wallHitsPlayer[i])) == typeid(Player)){
 
             game->score->decrease();
-            game->player->setPos(400, 500);
+            game->player->resetPlayer();
 
             if (resetSound->state() == QMediaPlayer::PlayingState){
                 resetSound->setPosition(0);
