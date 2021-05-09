@@ -8,6 +8,7 @@
 #include <QList>
 #include <stdlib.h> //rand()
 
+extern Score* score;
 extern Game * game; //ALLOWS WALLS TO DESTROY PLAYER
 //extern Player *player;
 extern  QGraphicsRectItem * rectangle1;
@@ -30,70 +31,71 @@ Walls::Walls(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent){
 
     resetSound->setMedia(QUrl("qrc:/audio/zoom.wav"));
 
-    //WALLS
-    // random spawn pos
-/*
-     int random_x = rand() % 800; //create random enemy within screen
-     int random_y = rand() % 800;
+    //    //WALLS
+    //    // random spawn pos
 
-     qDebug()<<" ORIGINAL x: "<<random_x<<"y: " <<random_y;
+    //     int random_x = rand() % 800; //create random enemy within screen
+    //     int random_y = rand() % 800;
 
- //y first
-     if(random_y < 500){ // if
-//         qDebug()<<"INSIDE x: "<<random_x<<"y: " <<random_y;
+    //     qDebug()<<" ORIGINAL x: "<<random_x<<"y: " <<random_y;
 
-            setPos(random_x,490);
-          setRect(0,0,50,-400); //LOOK out for top boundary Deletion (reason why bullets delete)
-     }
+    // //y first
+    //     if(random_y < 500){ // if
+    ////         qDebug()<<"INSIDE x: "<<random_x<<"y: " <<random_y;
 
-     if(random_y > 525){ // wont spawn boundaries on character and the goal so i need current coords of player and goal
+    //            setPos(random_x,490);
+    //          setRect(0,0,50,-400); //LOOK out for top boundary Deletion (reason why bullets delete)
+    //     }
 
-//         qDebug()<<"INSIDE x: "<<random_x<<"y: " <<random_y;
+    //     if(random_y > 525){ // wont spawn boundaries on character and the goal so i need current coords of player and goal
 
-          setPos(random_x,530);
-          setRect(0,0,50,500);
-     }                                      //REMEMBER random_x and Random_y are the corners of the rectangles so technically you make the pont before rect
-                                            //MAYBE DO RANDOM COLORS
+    ////         qDebug()<<"INSIDE x: "<<random_x<<"y: " <<random_y;
 
-     if(random_x < 400){ //width of player
+    //          setPos(random_x,530);
+    //          setRect(0,0,50,500);
+    //     }                                      //REMEMBER random_x and Random_y are the corners of the rectangles so technically you make the pont before rect
+    //                                            //MAYBE DO RANDOM COLORS
 
-//         qDebug()<<"INSIDE x: "<<random_x<<"y: " <<random_y;
+    //     if(random_x < 400){ //width of player
 
-          setPos(390,random_y);
-          setRect(0,0,-500,50);
-     }
-     if(random_x > 430){
+    ////         qDebug()<<"INSIDE x: "<<random_x<<"y: " <<random_y;
 
-//         qDebug()<<"INSIDE x: "<<random_x<<"y: " <<random_y;
+    //          setPos(390,random_y);
+    //          setRect(0,0,-500,50);
+    //     }
+    //     if(random_x > 430){
 
-          setPos(440,random_y); //WE CAN CHANGE SO IT ISNT AT THE NEAR EDGES OF THE PLAYER
-          setRect(0,0,500,50);
-     }
+    ////         qDebug()<<"INSIDE x: "<<random_x<<"y: " <<random_y;
 
-
-
-    //IN THEORY THIS IS WHATWE NEED TO DO if(setPos(random_x,random_y) >= setPos(400,500)) (Wall vs player)
-
-     qDebug()<<" updated x: "<<random_x<<"y: " <<random_y;
-//     setPos(450,450);
-//     setRect(0,0,-50,30);                                                                 //negative Height and width will flip the figure
-                                                                                        //PLAYER'S LOCATION WILL ALWAYS BE LOWER CENTER(400,500)
-//     if(random_x<400 || random_x>500){ // wont spawn on character
-//         random_x = 200;
-
-//  qDebug()<<"INSIDE x: "<<random_x<<"y: " <<random_y;
-//         setPos(random_x,random_y);
-
-//         setRect(0,0,90,700);
-//     }
+    //          setPos(440,random_y); //WE CAN CHANGE SO IT ISNT AT THE NEAR EDGES OF THE PLAYER
+    //          setRect(0,0,500,50);
+    //     }
 
 
-*/
+
+    //    //IN THEORY THIS IS WHATWE NEED TO DO if(setPos(random_x,random_y) >= setPos(400,500)) (Wall vs player)
+
+    //     qDebug()<<" updated x: "<<random_x<<"y: " <<random_y;
+    ////     setPos(450,450);
+    ////     setRect(0,0,-50,30);                                                                 //negative Height and width will flip the figure
+    //                                                                                        //PLAYER'S LOCATION WILL ALWAYS BE LOWER CENTER(400,500)
+    ////     if(random_x<400 || random_x>500){ // wont spawn on character
+    ////         random_x = 200;
+
+    ////  qDebug()<<"INSIDE x: "<<random_x<<"y: " <<random_y;
+    ////         setPos(random_x,random_y);
+
+    ////         setRect(0,0,90,700);
+    ////     }
+
+
+
 
 
 
     // connect
     QTimer * timer = new QTimer(this);
+//QTimer * timer1 = new QTimer(this);
 
         int random_number = rand() % 950;
 
@@ -102,10 +104,24 @@ Walls::Walls(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent){
     setRect(0,0,50,50);
 
 //     qDebug()<<"Wall 1 INSIDE x: "<<random_number<<"y: " <<y();
+//if(character picks up a )
 
-      connect(timer,SIGNAL(timeout()),this,SLOT(moveDown())); // connect signal to object, bullet's constructor //every timeout bullet will move
 
-      timer->start(75); //every 25 ms timeout signals move to move bullet
+     // connect signal to object, bullet's constructor //every timeout bullet will move
+
+    if(game->score->getScore()>=0){ //if a player's score is greator than 1
+        connect(timer,SIGNAL(timeout()),this,SLOT(moveDown()));
+        timer->start(75);
+     //every 75 ms timeout signals move to move bullet
+}
+    if(game->score->getScore() >= 1){
+        connect(timer,SIGNAL(timeout()),this,SLOT(moveLeft()));
+        timer->start(105);
+    }
+// connect(timer,SIGNAL(timeout()),this,SLOT(moveLeft()));
+// timer1->start(25);
+
+
 
 //     qDebug()<<"Moving first Block";
      //this->move();
@@ -126,23 +142,12 @@ Walls::Walls(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent){
     //QTimer * timer2 = new QTimer(this);
 
        setPos(500,random_number2);
-
-
        setRect(0,0,100,100);
-
-
      qDebug()<<"Wall 2 INSIDE x: "<<500<<"y: " <<random_number2;
-
-
    //connect(timer2 ,SIGNAL(timeout()),this,SLOT(move2()));
-
-
-
    //timer2->start(25);
 
      this->move2();
-
-
    qDebug()<<"Test";
 
 //}

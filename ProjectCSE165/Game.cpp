@@ -83,14 +83,10 @@ Game::Game(QWidget * parent){
     timer->start(500);
 
 
-//     player->spawnWall();
 
-
-
-  for(int i = 1; i<4; i++){ //TESTER for how many things we can spawn
+  for(int i = 0; i<4; i++){ //TESTER for how many things we can spawn
 //   player->spawnWall();
    player->spawnGoal();
-
   }
 
      //spawns the little goal

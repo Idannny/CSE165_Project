@@ -20,12 +20,13 @@ public:
     Walls(QGraphicsItem * parent = 0);
 //    QMediaPlayer *resetSound;
 
-public slots: //a member function that can be accesed by .cpp
+public slots: //a member function that can be accesed by .cpp all of these slots are attributes that can change the direction and type of but will not create new types
     void moveDown();
     void moveLeft();
 
 private:
 QMediaPlayer *resetSound;
+
     //refactor, adds definition to bullet.cpp
 };
 

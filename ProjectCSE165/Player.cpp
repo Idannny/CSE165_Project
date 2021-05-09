@@ -45,6 +45,7 @@ void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
                 }
             game->score->increase();
 //          qDebug()<<"coin check";
+
          delete coinCollect[i];
 
 
