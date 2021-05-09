@@ -26,12 +26,12 @@ extern Game * game;
 Game::Game(QWidget * parent){
 
     scene = new QGraphicsScene();
-    scene->setSceneRect(0,0,1000,800); // make the scene 800x600 instead of infinity by infinity (default)
+    scene->setSceneRect(0,0,1000,900); // make the scene 800x600 instead of infinity by infinity (default)
 
     setScene(scene);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setFixedSize(1000,800);
+    setFixedSize(1000,900);
 
     //COLOR WINDOW
    // QColor * color;
@@ -83,19 +83,17 @@ Game::Game(QWidget * parent){
     timer->start(500);
 
 
-     player->spawnWall();
-
-    player->spawnGoal();
+//     player->spawnWall();
 
 
-  //for(int i = 1; i<10; i++){
 
-    // player->spawnWall();
-    //player->virtual timerEvent(spawnWall());
+  for(int i = 1; i<4; i++){ //TESTER for how many things we can spawn
+//   player->spawnWall();
+   player->spawnGoal();
 
-  //}
+  }
 
-    player->spawnGoal(); //spawns the little goal
+     //spawns the little goal
 
 
     //      player->spawn();

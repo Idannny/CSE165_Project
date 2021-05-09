@@ -159,17 +159,18 @@ void Walls::moveDown(){ //we also want different types of walls moving
 
     for (int i = 0, n = wallHitsPlayer.size(); i<n; i++){
         if(typeid(*(wallHitsPlayer[i])) == typeid(Player)){
-                //remove both
-//              // count++;
-                 game->score->decrease();
 
+               game->score->decrease();
                game->player->setPos(400, 500);
+
                if (resetSound->state() == QMediaPlayer::PlayingState){
                           resetSound->setPosition(0);
-                      }
-                      else if (resetSound->state() == QMediaPlayer::StoppedState){ //this will decide when music will play
+                }
+
+               else if (resetSound->state() == QMediaPlayer::StoppedState){ //this will decide when music will play
                           resetSound->play();
-                      }
+               }
+
 //               resetSound->play();
 
                 delete this;
@@ -190,7 +191,7 @@ setPos(x() , y() + 30);
     //this->move2();
 
 
-    //when bullets move off the screen delete them waste of memoory
+    //when blocks move off the screen delete them waste of memoory
     if (pos().y() + rect().height() < 0 ){// 0 is origin for y (Topleft)// with rect().height()we now have that after the size of the
         scene() -> removeItem(this);
         delete this;
@@ -202,9 +203,9 @@ setPos(x() , y() + 30);
 }
 
 
-void Walls::move2(){ //we also want different types of walls moving
+void Walls::moveLeft(){ //we also want different types of walls moving
 
-          setPos(x() + 50 ,y() + 50); //WILL MAKE WALS MOVE
+          setPos(x() + 50 ,y());
 
 
    // rectangle2->setRect(0,0,100,100);

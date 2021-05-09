@@ -22,7 +22,7 @@ public:
 
 public slots: //a member function that can be accesed by .cpp
     void moveDown();
-    void move2();
+    void moveLeft();
 
 private:
 QMediaPlayer *resetSound;
