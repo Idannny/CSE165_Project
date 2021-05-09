@@ -32,7 +32,7 @@ void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
    QList<QGraphicsItem *> colliding_items = collidingItems(); //we cand find what the bullet is colliding with
 
 
-    for (int i = 0, n = colliding_items.size(); i<n; i++){
+    for (int i = 0, n = colliding_items.size(); i<n; i++){ //when player hits walls
         if(typeid(*(colliding_items[i])) == typeid(Walls)){
 
                 //resetSound->play();

@@ -153,9 +153,6 @@ void Walls::move(){ //we also want different types of walls moving
 
     //while(){
 
-
-
-
 setPos(x() , y() + 30);
 
 //setRect(0,0,100,100);

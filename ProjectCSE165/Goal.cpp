@@ -8,10 +8,7 @@
 
 extern Score * score;
 
-Goal::Goal(QGraphicsItem *parent): QObject(), QGraphicsEllipseItem(parent){ //is this enemy???
-
-    //WALLS
-    // random spawn pos
+Goal::Goal(QGraphicsItem *parent): QObject(), QGraphicsEllipseItem(parent){
 
    // scene->addItem(getScore());
 
@@ -21,14 +18,13 @@ Goal::Goal(QGraphicsItem *parent): QObject(), QGraphicsEllipseItem(parent){ //is
 
 //trying to implement a while loop to keep generating coins:
 
-    while(score < 4){
 
 
      int random_x = rand() % 900; //create random enemy within screen
      int random_y = rand() % 900;
 
      qDebug()<<"Spawning Goal";
-    qDebug()<<"x: "<< random_x << "y: " << random_y;
+     qDebug()<<"x: "<< random_x << "y: " << random_y;
 
      //if(random_x < 400 || random_x > 500){ // wont spawn on character
 //         random_x = 200;
@@ -37,10 +33,8 @@ Goal::Goal(QGraphicsItem *parent): QObject(), QGraphicsEllipseItem(parent){ //is
          setPos(random_x,random_y);
            setRect(0,0, 20,20 );
 
-
-     }
-}//end of while
-
+//end of while
+}
 
 void Goal::move()
 {

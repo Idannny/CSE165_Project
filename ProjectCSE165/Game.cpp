@@ -24,12 +24,12 @@ extern Game * game;
 Game::Game(QWidget * parent){
 
     scene = new QGraphicsScene();
-    scene->setSceneRect(0,0,1000,1000); // make the scene 800x600 instead of infinity by infinity (default)
+    scene->setSceneRect(0,0,800,600); // make the scene 800x600 instead of infinity by infinity (default)
 
     setScene(scene);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setFixedSize(1000,1000);
+    setFixedSize(800,600);
 
     //COLOR WINDOW
    // QColor * color;
@@ -53,7 +53,7 @@ Game::Game(QWidget * parent){
 
     player = new Player();
     player->setRect(0,0,25,25); // change the rect from 0x0 (default) to 100x100 pixels
-    player->setPos(500,1000);                                                            // negative X is <-
+    player->setPos(400,500);                                                            // negative X is <-
                                                                                        //negative Y is ^
     // add the item to the scene
 
