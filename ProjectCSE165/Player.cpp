@@ -30,7 +30,8 @@ Player::Player(QGraphicsItem *parent): QGraphicsPixmapItem(parent){ //Player is 
 //    resetSound->setMedia(QUrl("qrc:/audio/zoom.wav"));//https://mixkit.co/free-sound-effects/
 
     goalSound = new QMediaPlayer();
-    goalSound->setMedia(QUrl("qrc:/audio/coin.wav"));
+    goalSound->setMedia(QUrl("qrc:/audio/CoinDrop.wav"));
+    goalSound->setVolume(25);
 
 }
 

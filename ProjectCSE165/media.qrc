@@ -5,7 +5,8 @@
         <file>coin.wav</file>
         <file>OutroSong.wav</file>
         <file>Sad_theme_Song.wav</file>
-        <file>569880__theoteravainen__peaceful-ambiance-theme.wav</file>
+        <file>Peaceful_Inrtro.wav</file>
+        <file>CoinDrop.wav</file>
     </qresource>
     <qresource prefix="/sprites">
         <file>coin.gif</file>

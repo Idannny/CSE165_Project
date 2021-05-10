@@ -106,8 +106,8 @@ Game::Game(QWidget * parent){
 
     // Attempts at sound
       QMediaPlayer * music = new QMediaPlayer();
-      music->setMedia(QUrl("qrc:/audio/back.wav")); //https://ia802607.us.archive.org/23/items/soundkeeperrecordings-formats/sr002-01-16
-      music->setVolume(5);
+      music->setMedia(QUrl("qrc:/audio/Sad_theme_Song.wav")); //https://ia802607.us.archive.org/23/items/soundkeeperrecordings-formats/sr002-01-16
+      music->setVolume(50);
       music->play();
 
       show();
