@@ -21,14 +21,6 @@ extern QGraphicsRectItem * rectangle2;
 //extern  QGraphicsRectItem * rectangle3;
 
 
-// random_number2 = rand() % 800;\
-
-//WE SHOULD HAVE ENEMY TURRETS
-
-//############################################################
-//Bug Found: whenever you shoot a wall on the left side of the screen... it cuts through the shape.
-//###############################################################
-
 
 Walls::Walls(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent){
 
@@ -202,7 +194,7 @@ void Walls::moveDown(){ //we also want different types of walls moving
     //when blocks move off the screen delete them waste of memoory walls deleted from memory
     if (pos().y() + rect().height() > 1020 ){// 0 is origin for y (Topleft)// with rect().height()we now have that after the size of the
         scene() -> removeItem(this);
-        delete this;
+        delete this; //NO MORE LAGGING
 
     }
 

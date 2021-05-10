@@ -11,14 +11,12 @@
 
 extern Game * game; // there is an external global object called game
 
-Bullet::Bullet(){ //every time space is pressed
+Attack::Attack(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){ //every time space is pressed
     // drew the rect
-    setRect(12.5,12.5,1,1);
+    setPixmap(QPixmap(":/sprites/warrants.png"));
 //double
     // connect
     QTimer * timerUp = new QTimer();
-
-
     connect(timerUp,SIGNAL(timeout()),this,SLOT(moveUp())); // connect signal to object, bullet's constructor //every timeout bullet will move
 
 
@@ -29,7 +27,7 @@ Bullet::Bullet(){ //every time space is pressed
 // Score::int count= 0;
 
 
-void Bullet::moveUp(){
+void Attack::moveUp(){
     //before anything check if bullet collides with an enemy
     //if bullet collides with enemy destroy both
 
@@ -53,18 +51,16 @@ void Bullet::moveUp(){
         }
     }
     // move bullet up
-    setPos(x(),y()-10); //direction of bullet coordinates
+   setPos(x(),10); //direction of bullet coordinates
 
 
 
 
     //when bullets move off the screen delete them waste of memoory
-    if (pos().y() + rect().height() < 0 ){// 0 is origin for y (Topleft)// with rect().height()we now have that after the size of the bullet moves offscreen it is deleted
+    if (pos().y() < 0 ){// 0 is origin for y (Topleft)// with rect().height()we now have that after the size of the bullet moves offscreen it is deleted
         scene() -> removeItem(this);
         delete this;
-        //qDebug() << "Bullet dead";
-        //My comment LaFrance
-        //second comment
+
     }
 }
 
