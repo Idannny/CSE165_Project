@@ -42,6 +42,11 @@ Game::Game(QWidget * parent){
          setWindowTitle("Tax Collector");
          show();
 
+//    //Adding Music:
+//        music = new QMediaPlayer();
+
+//        game->music->setMedia(QUrl("qrc:/audio/569880__theoteravainen__peaceful-ambiance-theme.wav"));
+
 
     //adding the button onto the game:
 
@@ -109,17 +114,17 @@ Game::Game(QWidget * parent){
 
 }
 
-void Game::on_pushButton_clicked()
-{
-       //connect(this,SIGNAL(clicked()),this, SLOT(Game()));
+//void Game::on_pushButton_clicked()
+//{
+//       //connect(this,SIGNAL(clicked()),this, SLOT(Game()));
 
-        //generates game window
+//        //generates game window
 
-    //delete this; //deletes the instance of memory allocated to the Title window... allowing us to move after pressing it...
+//    //delete this; //deletes the instance of memory allocated to the Title window... allowing us to move after pressing it...
 
-    game = new Game();
-    game->show();
+//    game = new Game();
+//    game->show();
 
-}
+//}
 
 

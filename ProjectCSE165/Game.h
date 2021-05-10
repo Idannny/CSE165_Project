@@ -5,6 +5,7 @@
 #include <QWidget>
 #include <QGraphicsScene>
 #include <QPushButton>
+#include <QMediaPlayer>
 
 // leads to less ambiguity across all our files
 
@@ -27,13 +28,14 @@ public:
     Player * player;
     Score * score;
     Button * my_button;
-
+    //QMediaPlayer * music;
      void on_pushButton_clicked();
 
 private slots:
 
 
 private:
+
     Game * game;
 
 
