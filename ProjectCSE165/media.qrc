@@ -3,6 +3,8 @@
         <file>back.wav</file>
         <file>zoom.wav</file>
         <file>coin.wav</file>
+        <file>OutroSong.wav</file>
+        <file>Sad_theme_Song.wav</file>
     </qresource>
     <qresource prefix="/sprites">
         <file>coin.gif</file>
