@@ -199,11 +199,11 @@ void Walls::moveDown(){ //we also want different types of walls moving
     setPos(x() , y() + 30);
 
 
-    //when blocks move off the screen delete them waste of memoory
-    if (pos().y() + rect().height() < 0 ){// 0 is origin for y (Topleft)// with rect().height()we now have that after the size of the
+    //when blocks move off the screen delete them waste of memoory walls deleted from memory
+    if (pos().y() + rect().height() > 1020 ){// 0 is origin for y (Topleft)// with rect().height()we now have that after the size of the
         scene() -> removeItem(this);
         delete this;
-        qDebug() << "Bullet dead";
+
     }
 
 

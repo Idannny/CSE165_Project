@@ -1,5 +1,5 @@
-#ifndef BULLET_H
-#define BULLET_H
+#ifndef WARRANTS_H
+#define WARRANTS_H
 
 #include <QGraphicsRectItem>
 #include <QObject> //any object using signals (line 12-13) and slots needs this
@@ -14,4 +14,4 @@ public slots: //a member function that can be accesed by .cpp
 
 };
 
-#endif // BULLET_H
+#endif // WARRANTS_H

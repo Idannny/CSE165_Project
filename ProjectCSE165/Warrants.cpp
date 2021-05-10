@@ -53,7 +53,7 @@ void Bullet::moveUp(){
         }
     }
     // move bullet up
-    setPos(x(),y()-1); //direction of bullet coordinates
+    setPos(x(),y()-10); //direction of bullet coordinates
 
 
 
