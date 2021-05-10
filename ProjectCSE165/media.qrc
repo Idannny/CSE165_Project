@@ -14,6 +14,7 @@
         <file>car.png</file>
         <file>character.png</file>
         <file>coin.png</file>
+        <file>iconTest.png</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

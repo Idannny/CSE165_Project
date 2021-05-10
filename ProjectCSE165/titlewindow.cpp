@@ -4,11 +4,28 @@
 
 extern Game * game;
 
+
 TitleWindow::TitleWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::TitleWindow)
 {
     ui->setupUi(this);
+
+
+
+    // Adding a song at the title screen:
+
+
+      QMediaPlayer * music = new QMediaPlayer();
+      music->setMedia(QUrl("qrc:/audio/Peaceful_Inrtro.wav")); //https://ia802607.us.archive.org/23/items/soundkeeperrecordings-formats/sr002-01-16
+      music->setVolume(50);
+      music->play();
+
+      show();
+
+
+
+
 }
 
 TitleWindow::~TitleWindow()
@@ -18,6 +35,8 @@ TitleWindow::~TitleWindow()
 
 void TitleWindow::on_pushButton_clicked()
 {
+
+
 
     //Effectively links two windows together:
 
