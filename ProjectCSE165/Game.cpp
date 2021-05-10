@@ -39,7 +39,7 @@ Game::Game(QWidget * parent){
 
 
     //titleworks
-         setWindowTitle("Insert Game Title HERE");
+         setWindowTitle("Tax Collector");
          show();
 
 
