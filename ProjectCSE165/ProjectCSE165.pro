@@ -3,7 +3,7 @@ QT       += core gui\
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-#TARGET = main
+#TARGET = StartWindow.ui
 #TEMPLATE = app
 
 CONFIG += c++11
@@ -21,6 +21,7 @@ SOURCES += \
     Score.cpp \
     Warrants.cpp \
     main.cpp \
+    titlewindow.cpp \
     walls.cpp
 
 HEADERS += \
@@ -32,10 +33,12 @@ HEADERS += \
     Player.h \
     Score.h \
     Warrants.h \
+    titlewindow.h \
     walls.h
 
 FORMS += \
-   # TitleWindow.ui
+    titlewindow.ui
+    # TitleWindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

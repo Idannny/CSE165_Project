@@ -1,6 +1,7 @@
 //#include "Button.h" //including our button header file
 #include "Game.h"
 
+
 extern Game * game;
 extern QMouseEvent * press;
 extern Player * player;
@@ -17,7 +18,9 @@ Button::Button(QPushButton *parent): QPushButton(parent){
 
     //connecting the button signal to the appropiate slot:
 
-    my_button->connect(my_button, &QPushButton::clicked, this, &Button::resetPosition);
+   // my_button->connect(my_button, &QPushButton::clicked, this , &Game::on_pushButton_clicked);
+    my_button->connect(my_button, &QPushButton::clicked, this , &Button::reloadGame);
+
 
     //qDebug()<<"button clicked";
 
@@ -27,7 +30,7 @@ Button::Button(QPushButton *parent): QPushButton(parent){
 //creating a function for the event of the button:
 
 
-
+/*
 void Button::resetPosition(){
 
     qDebug()<<"Reset";
@@ -58,35 +61,13 @@ void Button::resetPosition(){
 
 }
 
-void Button::handleButton(){
+*/
 
-    //change the text
-    qDebug()<<"button clicked";
-
-   // my_button->resize(100, 100);
-
-    my_button->setText("Reset Again?");
-
-    //call button again:
+void Button::reloadGame(){
 
 
+   delete game;
 
-
-    //paused.. press again to reset
-   my_button->connect(my_button, &QPushButton::clicked, this, &Button::resetPosition);
-
-    //my_button->connect(my_button, &QPushButton::clicked, this, &Button::handleButton);
-
-  //game->connect(my_button,SIGNAL(clicked()),game, SLOT(new Button()));
-
-
-
-
-
-
-
-   // player = new Player();
-   // Player(keyPressEvent()); //trying to fix the error where if i click it doesnt let me use the keyboard...
 
 
 

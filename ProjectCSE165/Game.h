@@ -21,12 +21,21 @@
 class Game: public QGraphicsView{
 
 public:
-    Game(QWidget * parent=0);
+     Game(QWidget * parent=0);
 
     QGraphicsScene * scene;
     Player * player;
     Score * score;
     Button * my_button;
+
+     void on_pushButton_clicked();
+
+private slots:
+
+
+private:
+    Game * game;
+
 
 };
 

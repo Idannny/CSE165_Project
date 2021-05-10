@@ -108,3 +108,18 @@ Game::Game(QWidget * parent){
       show();
 
 }
+
+void Game::on_pushButton_clicked()
+{
+       //connect(this,SIGNAL(clicked()),this, SLOT(Game()));
+
+        //generates game window
+
+    //delete this; //deletes the instance of memory allocated to the Title window... allowing us to move after pressing it...
+
+    game = new Game();
+    game->show();
+
+}
+
+

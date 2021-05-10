@@ -20,6 +20,7 @@ public slots: //a member function that can be accesed by .cpp
 private:
     QGraphicsPixmapItem* coinSprite;
 
+
 };
 
 #endif // GOAL_H

@@ -1,28 +1,30 @@
 
-//#include <QGraphicsScene>
-//#include "Player.h" //extends QraphicsRect//PORTED TO GAME.CPP
-//#include <QGraphicsView>
-//#include <QGraphicsItem>
+
 #include <QApplication>
 #include "Game.h"
+#include "titlewindow.h"
 
 
 
 Game * game;//CLASS game is from game.h is now parenting main.cpp
+TitleWindow * title;
+ //StartWindow title;
 
 int main(int argc, char *argv[]){
 
-   //QApplication title(argc, argv);
-    QApplication videoGame(argc, argv);
+    //In order to start the Game:
+
+   QApplication Title(argc, argv);
+
+   title = new TitleWindow();
+
+   title->show();
+
+   return Title.exec();
 
 
 
-    game = new Game();
-    game->show();
-
-    return videoGame.exec(); //execution of the command
 
 
-    //a testing comment
 
 }
