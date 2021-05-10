@@ -20,7 +20,7 @@ Attack::Attack(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){ /
     connect(timerUp,SIGNAL(timeout()),this,SLOT(moveUp())); // connect signal to object, bullet's constructor //every timeout bullet will move
 
 
-    timerUp->start(25); //every 50 ms timeout signals move to move bullet
+    timerUp->start(100); //every 50 ms timeout signals move to move bullet
 
 }
 
@@ -51,7 +51,7 @@ void Attack::moveUp(){
         }
     }
     // move bullet up
-   setPos(x(),10); //direction of bullet coordinates
+    setPos(x(),-10); //direction of bullet coordinates
 
 
 
@@ -63,5 +63,40 @@ void Attack::moveUp(){
 
     }
 }
+
+void Attack::moveDown()
+{
+    QList<QGraphicsItem *> colliding_items = collidingItems(); //we cand find what the bullet is colliding with
+
+
+    for (int i = 0, n = colliding_items.size(); i<n; i++){
+        if(typeid(*(colliding_items[i])) == typeid(Walls)){
+                //remove both
+            // count++;
+                 game->score->increase();
+
+
+                scene() ->removeItem(colliding_items[i]);
+                scene() ->removeItem(this);
+                //remove from heap
+                delete colliding_items[i];
+                delete this; //bullet
+
+                return;//no memory errors
+        }
+    }
+    // move bullet up
+    setPos(x(),10); //direction of warrant coordinates
+
+
+
+
+    //when bullets move off the screen delete them waste of memoory
+    if (pos().y() < 0 ){// 0 is origin for y (Topleft)// with rect().height()we now have that after the size of the bullet moves offscreen it is deleted
+        scene() -> removeItem(this);
+        delete this;
+    }
+}
+
 
 

@@ -2,11 +2,11 @@
 #define WALLS_H
 
 #include <QGraphicsItem>
-#include <QGraphicsRectItem>
+#include <QGraphicsPixmapItem>
 #include <QObject> //any object using signals (line 12-13) and slots needs this
 #include <QMediaPlayer>
 
-class Walls: public QObject,public QGraphicsRectItem{  //, public Player{
+class Walls: public QObject,public QGraphicsPixmapItem{  //, public Player{
     Q_OBJECT; //Macro
 
     //making new objects to represent rectangles

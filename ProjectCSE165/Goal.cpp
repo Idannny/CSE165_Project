@@ -8,8 +8,11 @@
 
 extern Score * score;
 
-Goal::Goal(QGraphicsItem *parent): QObject(), QGraphicsEllipseItem(parent){
+Goal::Goal(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
 
+    coinSprite = new QGraphicsPixmapItem;
+  setPixmap(QPixmap(":/sprites/coin.png"));
+   show();
 
      int random_x = rand() % 800; //create random goal within screen
      int random_y = rand() % 800;
@@ -22,7 +25,7 @@ Goal::Goal(QGraphicsItem *parent): QObject(), QGraphicsEllipseItem(parent){
 
          qDebug()<<"Goal INSIDE x: "<<random_x<< " y: " <<random_y;
          setPos(random_x,random_y);
-           setRect(0,0, 20,20 );
+//           setRect(0,0, 20,20 );
 
 //end of while
 }

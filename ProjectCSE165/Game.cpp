@@ -59,20 +59,16 @@ Game::Game(QWidget * parent){
     //CREATE NEW PLAYER
 
     player = new Player();
-    player->setRect(0,0,25,25); // change the rect from 0x0 (default) to 100x100 pixels
-    player->setPos(400,975);                                                            // negative X is <-
-                                                                                       //negative Y is ^
+//    player->setPixmap(QPixmap(":/sprites/character.png")); //setRect(0,0,25,25); // change the rect from 0x0 (default) to 100x100 pixels
+    player->setPos(400,800);                                                            // negative X is <-
+                                                                                      //negative Y is ^
     // add the item to the scene
-
-
     // make rect focusable
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
 
     scene->addItem(player);
    // setting location of the player according to window view
-
-
 
 //SCORE UPDATE
      score = new Score();

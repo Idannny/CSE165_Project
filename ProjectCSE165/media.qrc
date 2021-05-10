@@ -8,6 +8,8 @@
         <file>coin.gif</file>
         <file>warrants.png</file>
         <file>car.png</file>
+        <file>character.png</file>
+        <file>coin.png</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

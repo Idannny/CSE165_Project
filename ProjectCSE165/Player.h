@@ -1,7 +1,8 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include <QGraphicsRectItem>
+//#include <QGraphicsRectItem>
+#include <QGraphicsPixmapItem>
 
 #include <QGraphicsEllipseItem>
 
@@ -11,7 +12,7 @@
 
 //#include "Game.h"
 
-class Player: public QObject,  public QGraphicsRectItem{
+class Player: public QObject,  public QGraphicsPixmapItem{ //changed to pixmap item
     Q_OBJECT
 
 public:
@@ -24,7 +25,7 @@ public slots:
     void resetPlayer();
 
 private:
-
+     QGraphicsPixmapItem* characterSprite;
     QMediaPlayer* goalSound;
 
 };

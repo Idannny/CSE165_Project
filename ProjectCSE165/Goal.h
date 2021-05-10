@@ -3,11 +3,13 @@
 
 
 #include <QGraphicsItem>
-#include <QGraphicsEllipseItem>
+//#include <QGraphicsEllipseItem>
+#include <QGraphicsPixmapItem>
 #include <QObject> //any object using signals (line 12-13) and slots needs this
 
 #include "Player.h"
-class Goal: public QObject,public QGraphicsEllipseItem{
+
+class Goal: public QObject,public QGraphicsPixmapItem{
     Q_OBJECT //Macro
 
 public:
@@ -15,7 +17,8 @@ public:
 
 public slots: //a member function that can be accesed by .cpp
     void move();
-
+private:
+    QGraphicsPixmapItem* coinSprite;
 
 };
 

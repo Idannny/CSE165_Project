@@ -22,7 +22,7 @@ extern QGraphicsRectItem * rectangle2;
 
 
 
-Walls::Walls(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent){
+Walls::Walls(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
 
     //eding a sound to reset with:
 
@@ -34,13 +34,15 @@ Walls::Walls(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent){
 
     //to generate the walls we see in the game:
 
-    QTimer * timer = new QTimer(this);
+  setPixmap(QPixmap(":/sprites/car.png"));
 
     int random_number = rand() % 950;
-
+    int random_enemySize = rand() %100;
     setPos(random_number,50);
 
-    setRect(0,0,50,50);
+
+
+//    setRect(0,0,random_enemySize,random_enemySize);
 
     //     qDebug()<<"Wall 1 INSIDE x: "<<random_number<<"y: " <<y();
     //if(character picks up a )
@@ -48,7 +50,7 @@ Walls::Walls(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent){
 
     // connect signal to object, bullet's constructor //every timeout bullet will move
 
-
+  QTimer * timer = new QTimer(this);
     if(game->score->getScore()>=0){ //if a player's score is 0:
         connect(timer,SIGNAL(timeout()),this,SLOT(moveDown()));
         timer->start(75);
@@ -192,7 +194,7 @@ void Walls::moveDown(){ //we also want different types of walls moving
 
 
     //when blocks move off the screen delete them waste of memoory walls deleted from memory
-    if (pos().y() + rect().height() > 1020 ){// 0 is origin for y (Topleft)// with rect().height()we now have that after the size of the
+    if (pos().y() + pixmap().height() > 1020 ){// 0 is origin for y (Topleft)// with rect().height()we now have that after the size of the
         scene() -> removeItem(this);
         delete this; //NO MORE LAGGING
 
@@ -208,9 +210,9 @@ void Walls::moveLeft(){ //we also want different types of walls moving
     setPos(x() + 50 ,y());
 
 
-    setPos(x()+ 0, y() + 0);
+//    setPos(x()+ 0, y() + 0);
 
-    setRect(0,0,100,100);
+
     setPos(x() + 10,y() + 0);
     //rectangle2->setPos(x(),y()+ 10);
 
