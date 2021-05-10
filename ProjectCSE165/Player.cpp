@@ -129,9 +129,22 @@ void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
 void Player::spawnWall(){ //to spawn the enemy as rectangular objects: similar to user
     //create Walls AND goal
 
-    Walls * borderWall = new Walls(); //VERY IMPORTANT
+    //first enemy created
+
+
+    Enemy1 * borderWall = new Enemy1(); //VERY IMPORTANT
     scene() -> addItem(borderWall);
-    /*scene() -> addItem(endGoal);*///additem is member from Qgraphicsscene
+    /*scene() -> addItem(endGoal);*///additem is member from Qgraphicsscene*/
+
+    //second enemy created
+
+   if(game->score->getScore() >= 1){
+
+    Enemy2 * borderWall2 = new Enemy2(); //VERY IMPORTANT
+    scene() -> addItem(borderWall2);
+
+   }
+
 }
 
 void Player::spawnGoal()

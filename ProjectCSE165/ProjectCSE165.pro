@@ -15,26 +15,28 @@ CONFIG += c++11
 SOURCES += \
     Button.cpp \
     Color.cpp \
+    Enemy1.cpp \
+    Enemy2.cpp \
     Game.cpp \
     Goal.cpp \
     Player.cpp \
     Score.cpp \
     Warrants.cpp \
     main.cpp \
-    titlewindow.cpp \
-    walls.cpp
+    titlewindow.cpp
 
 HEADERS += \
     Button.h \
     Button.h \
     Color.h \
+    Enemy1.h \
+    Enemy2.h \
     Game.h \
     Goal.h \
     Player.h \
     Score.h \
     Warrants.h \
-    titlewindow.h \
-    walls.h
+    titlewindow.h
 
 FORMS += \
     titlewindow.ui

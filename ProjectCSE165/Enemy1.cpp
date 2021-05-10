@@ -22,7 +22,7 @@ extern QGraphicsRectItem * rectangle2;
 
 
 
-Walls::Walls(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
+Enemy1::Enemy1(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
 
     //Adding sound when player collides with car(wall)
 
@@ -60,10 +60,7 @@ Walls::Walls(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
 
     //game gets a step harder when you get a point:
 
-    if(game->score->getScore() >= 1){
-        connect(timer,SIGNAL(timeout()),this,SLOT(moveLeft()));
-        timer->start(105);
-    }
+
 
 
     //    //WALLS
@@ -163,7 +160,7 @@ Walls::Walls(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
 
 
 
-void Walls::moveDown(){ //we also want different types of walls moving
+void Enemy1::moveDown(){ //we also want different types of walls moving
 
 
     QList<QGraphicsItem *> wallHitsPlayer = collidingItems();
@@ -206,7 +203,7 @@ void Walls::moveDown(){ //we also want different types of walls moving
 } //end of move Down
 
 
-void Walls::moveLeft(){ //we also want different types of walls moving
+void Enemy1::moveLeft(){ //we also want different types of walls moving
 
     setPos(x() + 50 ,y());
 

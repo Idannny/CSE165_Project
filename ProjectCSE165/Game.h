@@ -13,7 +13,8 @@
 #include "Score.h"
 #include "Warrants.h"
 #include "Button.h"
-#include "walls.h"
+#include "Enemy1.h"
+#include "Enemy2.h"
 #include "Color.h"
 #include "Goal.h"
 //new widget
