@@ -29,8 +29,9 @@ Player::Player(QGraphicsItem *parent): QGraphicsPixmapItem(parent){ //Player is 
 //    resetSound = new QMediaPlayer();
 //    resetSound->setMedia(QUrl("qrc:/audio/zoom.wav"));//https://mixkit.co/free-sound-effects/
 
+    //adds sound When you pick up a coin:
     goalSound = new QMediaPlayer();
-    goalSound->setMedia(QUrl("qrc:/audio/CoinDrop.wav"));
+    goalSound->setMedia(QUrl("qrc:/audio/coin.wav"));
     goalSound->setVolume(25);
 
 }

@@ -24,11 +24,12 @@ extern QGraphicsRectItem * rectangle2;
 
 Walls::Walls(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
 
-    //eding a sound to reset with:
+    //Adding sound when player collides with car(wall)
 
     resetSound = new QMediaPlayer();
 
     resetSound->setMedia(QUrl("qrc:/audio/zoom.wav"));
+    resetSound->setVolume(25);
 
 
 
@@ -37,7 +38,7 @@ Walls::Walls(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
   setPixmap(QPixmap(":/sprites/car.png"));
 
     int random_number = rand() % 950;
-    int random_enemySize = rand() %100;
+   // int random_enemySize = rand() %100;
     setPos(random_number,50);
 
 
