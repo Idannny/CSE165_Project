@@ -20,8 +20,8 @@ public:
     void keyPressEvent(QKeyEvent * event);
 
 public slots:
-    void spawnWall(); //spawn is an event that will be created by extension
-    void spawnGoal();
+    void EnemySpawn(); //spawn is an event that will be created by extension
+    void GoalSpawn();
     void resetPlayer();
 
 private:

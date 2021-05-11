@@ -20,8 +20,6 @@ extern QGraphicsRectItem * rectangle2;
 
 //extern  QGraphicsRectItem * rectangle3;
 
-
-
 Enemy2::Enemy2(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
 
     //Adding sound when player collides with car(wall)
@@ -31,10 +29,9 @@ Enemy2::Enemy2(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
     resetSound->setVolume(25);
 
 
-
     //to generate the walls we see in the game:
 
-     setPixmap(QPixmap(":/sprites/car.png"));
+     setPixmap(QPixmap(":/sprites/carNew.png"));
     int random_number = rand() % 950;
    // int random_enemySize = rand() %100;
     setPos(50,random_number);
@@ -44,6 +41,7 @@ Enemy2::Enemy2(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
     // connect signal to object, bullet's constructor //every timeout bullet will move
 
         QTimer * timer = new QTimer(this);
+
     //if(game->score->getScore() >= 1){ //if the score is 1
         connect(timer,SIGNAL(timeout()),this,SLOT(moveLeftToRight()));
         timer->start(105);

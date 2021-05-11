@@ -23,7 +23,9 @@ extern Attack *attack; //allows us to use these as a player //kinda like attribu
 Player::Player(QGraphicsItem *parent): QGraphicsPixmapItem(parent){ //Player is able to use in main
 
     characterSprite = new QGraphicsPixmapItem;
-  setPixmap(QPixmap(":/sprites/character.png"));
+  setPixmap(QPixmap(":/sprites/characterNew.png"));
+          //characterSprite->setScale(10);
+
    show();
 //Attribute of player
 //    resetSound = new QMediaPlayer();
@@ -56,8 +58,6 @@ void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
 //          qDebug()<<"coin check";
 
          delete coinCollect[i];
-
-
           return;
              }
           }
@@ -67,15 +67,11 @@ void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
     if (event->key() == Qt::Key_A){
         if(pos().x()>0){ // if the player reaches the bounds because scene's Left is origin x
             setPos(x()-15,y());
-
-
-//           Attack().moveUp();
             }
     }
     else if (event->key() == Qt::Key_D){
         if(pos().x() <975){ //30 is the player's right corner & 800 is the Viewscreen's right boundry
         setPos(x()+15,y());
-
 
         }
     }
@@ -88,7 +84,6 @@ void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
     else if (event->key() == Qt::Key_S){ //prevent from using up and down
         if(pos().y() <975){ //"down boundary --adjust the 800 to a bigger number to go down further...
         setPos(x(),y()+15);
-
 //        Attack().moveDown();
         }
     }
@@ -126,28 +121,28 @@ void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
 
 }
 
-void Player::spawnWall(){ //to spawn the enemy as rectangular objects: similar to user
+void Player::EnemySpawn(){ //to spawn the enemy as rectangular objects: similar to user
     //create Walls AND goal
 
     //first enemy created
 
 
-    Enemy1 * borderWall = new Enemy1(); //VERY IMPORTANT
-    scene() -> addItem(borderWall);
+    Enemy1 * EnemyDown = new Enemy1(); //VERY IMPORTANT
+    scene() -> addItem(EnemyDown);
     /*scene() -> addItem(endGoal);*///additem is member from Qgraphicsscene*/
 
     //second enemy created
 
-   if(game->score->getScore() >= 1){
+   if(game->score->getScore() >= 1){ // if the score is increased we get new enemies
 
-    Enemy2 * borderWall2 = new Enemy2(); //VERY IMPORTANT
-    scene() -> addItem(borderWall2);
+    Enemy2 * EnemyRight = new Enemy2(); //VERY IMPORTANT
+    scene() -> addItem(EnemyRight);
 
    }
 
 }
 
-void Player::spawnGoal()
+void Player::GoalSpawn()
 {
     Goal * endGoal = new Goal();
     scene() -> addItem(endGoal);//
@@ -155,7 +150,7 @@ void Player::spawnGoal()
 
 void Player::resetPlayer(){
 
-    setPos(400, 800);
+    setPos(500, 900);
 
     //new Player();
     // QPushButton::connect(my_button,SIGNAL(clicked()),game, SLOT(Button()));

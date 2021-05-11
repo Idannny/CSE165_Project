@@ -10,7 +10,9 @@
 //#include <QMediaPlayer>
 #include <QMovie>
 #include <QLabel>
-
+#include <QBrush>
+#include <QColor>
+#include <QImage>
 //#include "Enemy.h"
 //#include "Button.h"
 
@@ -27,6 +29,8 @@ Game::Game(QWidget * parent){
 
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,1000,1000); //make the scene 800x600 instead of infinity by infinity (default)
+ setBackgroundBrush(QColor("lightgray")); //or if you want a img background do QImage() instead of color
+
 
     setScene(scene);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -34,18 +38,13 @@ Game::Game(QWidget * parent){
     setFixedSize(1000,1000);
 
     //COLOR WINDOW
-   // QColor * color;
+//  QColor * color;
     //color->setNamedColor(QColor(255, 0, 0, 127));
 
 
     //titleworks
          setWindowTitle("Tax Collector");
          show();
-
-//    //Adding Music:
-//        music = new QMediaPlayer();
-
-//        game->music->setMedia(QUrl("qrc:/audio/569880__theoteravainen__peaceful-ambiance-theme.wav"));
 
 
     //adding the button onto the game:
@@ -65,7 +64,7 @@ Game::Game(QWidget * parent){
 
     player = new Player();
 //    player->setPixmap(QPixmap(":/sprites/character.png")); //setRect(0,0,25,25); // change the rect from 0x0 (default) to 100x100 pixels
-    player->setPos(400,800);                                                            // negative X is <-
+    player->setPos(500,900);                                                            // negative X is <-
                                                                                       //negative Y is ^
     // add the item to the scene
     // make rect focusable
@@ -75,27 +74,25 @@ Game::Game(QWidget * parent){
     scene->addItem(player);
    // setting location of the player according to window view
 
-//SCORE UPDATE
+    //SCORE UPDATE
      score = new Score();
      scene->addItem(score);
 
-    //SPAWN WAlls
+    //SPAWN Enemies
 
       QTimer * timer = new QTimer();
-     //Walls * wall = new Walls();
 
-    QObject::connect(timer,SIGNAL(timeout()),player, SLOT(spawnWall()));
+    QObject::connect(timer,SIGNAL(timeout()),player, SLOT(EnemySpawn()));
     timer->start(500);
 
 
 
   for(int i = 0; i<4; i++){ //TESTER for how many things we can spawn
 //   player->spawnWall();
-   player->spawnGoal();
+   player->GoalSpawn();
   }
 
      //spawns the little goal
-
 
     //      player->spawn();
         //    timer -> start(1000);
@@ -113,18 +110,3 @@ Game::Game(QWidget * parent){
       show();
 
 }
-
-//void Game::on_pushButton_clicked()
-//{
-//       //connect(this,SIGNAL(clicked()),this, SLOT(Game()));
-
-//        //generates game window
-
-//    //delete this; //deletes the instance of memory allocated to the Title window... allowing us to move after pressing it...
-
-//    game = new Game();
-//    game->show();
-
-//}
-
-

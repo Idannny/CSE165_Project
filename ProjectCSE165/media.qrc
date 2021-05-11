@@ -15,6 +15,10 @@
         <file>character.png</file>
         <file>coin.png</file>
         <file>iconTest.png</file>
+        <file>carNew.png</file>
+        <file>characterNew.png</file>
+        <file>coinNew.png</file>
+        <file>coinNewAgain.png</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

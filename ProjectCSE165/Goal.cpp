@@ -11,7 +11,7 @@ extern Score * score;
 Goal::Goal(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
 
     coinSprite = new QGraphicsPixmapItem;
-  setPixmap(QPixmap(":/sprites/coin.png"));
+  setPixmap(QPixmap(":/sprites/coinNewAgain.png"));
    show();
 
      int random_x = rand() % 800; //create random goal within screen
