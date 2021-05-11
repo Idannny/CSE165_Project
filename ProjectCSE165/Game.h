@@ -8,7 +8,7 @@
 #include <QMediaPlayer>
 
 // leads to less ambiguity across all our files
-
+#include "Boss.h"
 #include "coinScore.h"
 #include "Player.h"
 #include "Score.h"

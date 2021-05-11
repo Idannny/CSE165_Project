@@ -13,6 +13,7 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Boss.cpp \
     Button.cpp \
     Enemy1.cpp \
     Enemy2.cpp \
@@ -22,10 +23,12 @@ SOURCES += \
     Score.cpp \
     Warrants.cpp \
     coinScore.cpp \
+    endscreen.cpp \
     main.cpp \
     titlewindow.cpp
 
 HEADERS += \
+    Boss.h \
     Button.h \
     Button.h \
     Enemy1.h \
@@ -36,9 +39,11 @@ HEADERS += \
     Score.h \
     Warrants.h \
     coinScore.h \
+    endscreen.h \
     titlewindow.h
 
 FORMS += \
+    endscreen.ui \
     titlewindow.ui
     # TitleWindow.ui
 

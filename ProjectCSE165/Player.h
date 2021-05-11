@@ -23,6 +23,7 @@ public slots:
     void EnemySpawn(); //spawn is an event that will be created by extension
     void GoalSpawn();
     void resetPlayer();
+    void bossSpawn();
 
 private:
      QGraphicsPixmapItem* characterSprite;
