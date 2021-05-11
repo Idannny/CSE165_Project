@@ -34,7 +34,7 @@ Enemy2::Enemy2(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
      setPixmap(QPixmap(":/sprites/FATCAT.png"));
     int random_number = rand() % 950;
    // int random_enemySize = rand() %100;
-    setPos(50,random_number);
+    setPos(0,random_number);
 
 
 
