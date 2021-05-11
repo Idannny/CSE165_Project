@@ -31,10 +31,10 @@ Enemy2::Enemy2(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
 
     //to generate the walls we see in the game:
 
-     setPixmap(QPixmap(":/sprites/FATCAT1.png"));
+     setPixmap(QPixmap(":/sprites/FATCAT.png"));
     int random_number = rand() % 950;
    // int random_enemySize = rand() %100;
-    setPos(0,random_number);
+    setPos(50,random_number);
 
 
 
@@ -42,10 +42,10 @@ Enemy2::Enemy2(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
 
         QTimer * timer = new QTimer(this);
 
-    //if(game->score->getScore() >= 1){ //if the score is 1
+   // if(game->score->getScore() >= 2){ //if the score is 1
         connect(timer,SIGNAL(timeout()),this,SLOT(moveLeftToRight()));
         timer->start(105);
-    //}
+   // }
 
          /* Use Later:#######################################################################
         //every 75 ms timeout signals move to move bullet

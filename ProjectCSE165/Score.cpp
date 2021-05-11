@@ -24,6 +24,11 @@ void Score::increase()
 
     score++;
 
+    //if(score == 4){
+
+        //delete this;
+  // }
+
     setPlainText(QString("Served Score: ") + QString::number(score)); // Score: 1
 
 

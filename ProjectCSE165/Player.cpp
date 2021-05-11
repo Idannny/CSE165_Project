@@ -19,6 +19,7 @@ extern Game * game;
 extern QMouseEvent * press;
 extern Player * player;
 extern Attack *attack; //allows us to use these as a player //kinda like attributes
+extern coinScore * coinScore;
 
 Player::Player(QGraphicsItem *parent): QGraphicsPixmapItem(parent){ //Player is able to use in main
 
@@ -147,10 +148,9 @@ void Player::EnemySpawn(){ //to spawn the enemy as rectangular objects: similar 
 
     //second enemy created
 
-   if(game->score->getScore() >= 1){ // if the score is increased we get new enemies
+   if(game->score->getScore() >= 2){ // if the score is increased we get new enemies
 
     Enemy2 * EnemyRight = new Enemy2(); //VERY IMPORTANT
-
         scene() -> addItem(EnemyRight);
 
    }

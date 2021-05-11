@@ -42,10 +42,10 @@ Enemy1::Enemy1(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
 
 
   QTimer * timer = new QTimer(this);
-    if(game->score->getScore()>=0){ //if a player's score is 0:
+    //if(game->score->getScore()>=0){ //if a player's score is 0:
         connect(timer,SIGNAL(timeout()),this,SLOT(moveDown()));
       timer->start(75);
-    }
+    //}
 //        if(game->score->getScore()==1){
 //            delete timer;
 //        }

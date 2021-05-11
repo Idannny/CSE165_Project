@@ -8,7 +8,7 @@ coinScore::coinScore(QGraphicsItem *parent): QGraphicsTextItem(parent)
 
     //draw text - onlyworks when cpp has Qgraphics text Item
 
-    setPlainText("Money Attained: " + QString::number(score));
+    setPlainText("Taxes Attained: " + QString::number(score));
     setDefaultTextColor(Qt::black);
 
 
@@ -24,9 +24,12 @@ void coinScore::increase()
     //###############################################################
 
     score++;
-    if(score == 3){
-        delete this;
+
+    if(score == 4){
+
+        delete this; //ending the game
     }
+
     setPlainText(QString("Money Attained: ") + QString::number(score)); // Score: 1
 
 
