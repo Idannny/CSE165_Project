@@ -17,16 +17,16 @@ Goal::Goal(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
      int random_x = rand() % 500; //create random goal within screen
      int random_y = rand() % 500;
 
-     qDebug()<<"Spawning Goal";
-     qDebug()<<"x: "<< random_x << "y: " << random_y;
+//     qDebug()<<"Spawning Goal";
+//     qDebug()<<"x: "<< random_x << "y: " << random_y;
 
-     //if(random_x < 400 || random_x > 500){ // wont spawn on character
+      // wont spawn on character
 //         random_x = 200;
+        qDebug()<<"Goal INSIDE x: "<<random_x<< " y: " <<random_y;
 
-         qDebug()<<"Goal INSIDE x: "<<random_x<< " y: " <<random_y;
-         setPos(random_x,random_y);
-//           setRect(0,0, 20,20 );
-
+//        if(random_x < 400 || random_x > 500 && random_y < 400 || random_y > 500){
+     setPos(random_x,random_y);
+//SHOULDNT SPAWN ON CHARACTER
 //end of while
 }
 

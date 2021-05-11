@@ -77,6 +77,8 @@ Game::Game(QWidget * parent){
     //SCORE UPDATE
      coinScores = new coinScore();
      scene->addItem(coinScores);
+     coinScores->setPos(0, 30);
+
 
      score = new Score();
      scene->addItem(score);

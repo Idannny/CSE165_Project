@@ -11,6 +11,7 @@ coinScore::coinScore(QGraphicsItem *parent): QGraphicsTextItem(parent)
     setPlainText("Money Attained: " + QString::number(score));
     setDefaultTextColor(Qt::black);
 
+
     setFont(QFont("Times New Roman", 20));
 }
 
