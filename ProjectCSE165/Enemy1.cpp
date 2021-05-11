@@ -8,7 +8,7 @@
 #include <QList>
 #include <stdlib.h> //rand()
 
-extern Score* score;
+extern coinScore* score;
 extern Game * game; //ALLOWS WALLS TO DESTROY PLAYER
 
 
@@ -44,22 +44,27 @@ Enemy1::Enemy1(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
   QTimer * timer = new QTimer(this);
     if(game->score->getScore()>=0){ //if a player's score is 0:
         connect(timer,SIGNAL(timeout()),this,SLOT(moveDown()));
-        timer->start(75);
+      timer->start(75);
+    }
+//        if(game->score->getScore()==1){
+//            delete timer;
+//        }
+
 
 
         //every 75 ms timeout signals move to move bullet
     }
 
-}
+
 
 
 
 void Enemy1::moveDown(){ //we also want different types of walls moving
 
-    QList<QGraphicsItem *> wallHitsPlayer = collidingItems();
+    QList<QGraphicsItem *> Enemy1Hit = collidingItems();
 
-    for (int i = 0, n = wallHitsPlayer.size(); i<n; i++){
-        if(typeid(*(wallHitsPlayer[i])) == typeid(Player)){
+    for (int i = 0, n = Enemy1Hit.size(); i<n; i++){
+        if(typeid(*(Enemy1Hit[i])) == typeid(Player)){
             game->score->decrease();
             game->player->resetPlayer();
 

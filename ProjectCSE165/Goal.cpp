@@ -6,7 +6,7 @@
 #include <QGraphicsItem>
 #include <QList>
 
-extern Score * score;
+extern coinScore * score;
 
 Goal::Goal(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
 
@@ -14,8 +14,8 @@ Goal::Goal(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
   setPixmap(QPixmap(":/sprites/coinNewAgain.png"));
    show();
 
-     int random_x = rand() % 800; //create random goal within screen
-     int random_y = rand() % 800;
+     int random_x = rand() % 500; //create random goal within screen
+     int random_y = rand() % 500;
 
      qDebug()<<"Spawning Goal";
      qDebug()<<"x: "<< random_x << "y: " << random_y;

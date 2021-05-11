@@ -14,7 +14,6 @@ CONFIG += c++11
 
 SOURCES += \
     Button.cpp \
-    Color.cpp \
     Enemy1.cpp \
     Enemy2.cpp \
     Game.cpp \
@@ -22,13 +21,13 @@ SOURCES += \
     Player.cpp \
     Score.cpp \
     Warrants.cpp \
+    coinScore.cpp \
     main.cpp \
     titlewindow.cpp
 
 HEADERS += \
     Button.h \
     Button.h \
-    Color.h \
     Enemy1.h \
     Enemy2.h \
     Game.h \
@@ -36,6 +35,7 @@ HEADERS += \
     Player.h \
     Score.h \
     Warrants.h \
+    coinScore.h \
     titlewindow.h
 
 FORMS += \

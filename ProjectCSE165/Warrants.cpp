@@ -12,16 +12,12 @@
 extern Game * game; // there is an external global object called game
 
 Attack::Attack(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){ //every time space is pressed
-    // drew the rect
-//    setPixmap(QPixmap(":/sprites/lawBook.png"));
-//double
-    // connect
+
     QTimer * timerUp = new QTimer();
     connect(timerUp,SIGNAL(timeout()),this,SLOT(moveUp())); // connect signal to object, bullet's constructor //every timeout bullet will move
 
 
     timerUp->start(100); //every 50 ms timeout signals move to move bullet
-
 }
 
 // Score::int count= 0;

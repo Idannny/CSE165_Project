@@ -9,6 +9,7 @@
 
 // leads to less ambiguity across all our files
 
+#include "coinScore.h"
 #include "Player.h"
 #include "Score.h"
 #include "Warrants.h"
@@ -27,6 +28,7 @@ public:
 
     QGraphicsScene * scene;
     Player * player;
+    coinScore * coinScores;
     Score * score;
     Button * my_button;
     //QMediaPlayer * music;

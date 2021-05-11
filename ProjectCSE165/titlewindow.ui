@@ -23,16 +23,16 @@ border-color: rgb(0, 0, 0);</string>
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>250</y>
-      <width>331</width>
-      <height>161</height>
+      <y>270</y>
+      <width>341</width>
+      <height>141</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(6, 6, 255);</string>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>COLLECT TAXES NOW</string>
     </property>
    </widget>
    <widget class="QLabel" name="label">

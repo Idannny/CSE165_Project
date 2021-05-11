@@ -54,7 +54,7 @@ void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
                 else if (goalSound->state() == QMediaPlayer::StoppedState){
                     goalSound->play();
                 }
-            game->score->increase();
+            game->coinScores->increase();
 //          qDebug()<<"coin check";
 
          delete coinCollect[i];
@@ -88,7 +88,7 @@ void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
         }
     }
 
-
+//--------------------------------------
     //ATTACKS
     else if (event->key() == Qt::Key_Up){ //up key
         // create a bullet
@@ -97,7 +97,7 @@ void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
 
       attack->setPixmap(QPixmap(":/sprites/lawBookUp.png"));
 
-      attack->setPos(x(),y()-120);
+      attack->setPos(x()-65,y()-55);
 
         scene()->addItem(attack);
     }
@@ -118,7 +118,7 @@ void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
 
        attack->setPixmap(QPixmap(":/sprites/lawBookRight.png"));
 
-       attack->setPos(x()+100,y()-10);
+       attack->setPos(x()+10,y()-10);
 
        scene()->addItem(attack);
     }
@@ -128,7 +128,7 @@ void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
 
        attack->setPixmap(QPixmap(":/sprites/lawBookLeft.png"));
 
-       attack->setPos(x()-30,y()-10);
+       attack->setPos(x()-100,y());
 
        scene()->addItem(attack);
    }
@@ -150,7 +150,8 @@ void Player::EnemySpawn(){ //to spawn the enemy as rectangular objects: similar 
    if(game->score->getScore() >= 1){ // if the score is increased we get new enemies
 
     Enemy2 * EnemyRight = new Enemy2(); //VERY IMPORTANT
-    scene() -> addItem(EnemyRight);
+
+        scene() -> addItem(EnemyRight);
 
    }
 
@@ -164,7 +165,7 @@ void Player::GoalSpawn()
 
 void Player::resetPlayer(){
 
-    setPos(500, 900);
+    setPos(450, 500);
 
     //new Player();
     // QPushButton::connect(my_button,SIGNAL(clicked()),game, SLOT(Button()));

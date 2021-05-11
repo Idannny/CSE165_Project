@@ -1,20 +1,20 @@
 #include "Game.h"
 #include <QFont>
 
-Score::Score(QGraphicsItem *parent): QGraphicsTextItem(parent)
+coinScore::coinScore(QGraphicsItem *parent): QGraphicsTextItem(parent)
 { // this will have a parent too
 
     score = 0; //intitially starting at 0
 
     //draw text - onlyworks when cpp has Qgraphics text Item
 
-    setPlainText("Served Score: " + QString::number(score));
+    setPlainText("Money Attained: " + QString::number(score));
     setDefaultTextColor(Qt::black);
 
     setFont(QFont("Times New Roman", 20));
 }
 
-void Score::increase()
+void coinScore::increase()
 {
 
     //###############################################################
@@ -23,19 +23,18 @@ void Score::increase()
     //###############################################################
 
     score++;
-
-    setPlainText(QString("Served Score: ") + QString::number(score)); // Score: 1
+    setPlainText(QString("Money Attained: ") + QString::number(score)); // Score: 1
 
 
 }
 
-void Score::decrease()
+void coinScore::decrease()
 {
     score = 0;
-    setPlainText(QString("Served Score: ") + QString::number(score)); //decreasing the score
+    setPlainText(QString("Money Attained: ") + QString::number(score)); //decreasing the score
 }
 
-int Score::getScore()
+int coinScore::getScore()
 {
     return score; //gathering our score
 }

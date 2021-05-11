@@ -8,7 +8,7 @@
 #include <QList>
 #include <stdlib.h> //rand()
 
-extern Score* score;
+extern coinScore* score;
 extern Game * game; //ALLOWS WALLS TO DESTROY PLAYER
 
 
@@ -69,10 +69,10 @@ Enemy2::Enemy2(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
 void Enemy2::moveLeftToRight(){ //we also want different types of walls moving
 
 
-    QList<QGraphicsItem *> wallHitsPlayer = collidingItems();
+    QList<QGraphicsItem *> Enemy2Hit = collidingItems();
 
-    for (int i = 0, n = wallHitsPlayer.size(); i<n; i++){
-        if(typeid(*(wallHitsPlayer[i])) == typeid(Player)){
+    for (int i = 0, n = Enemy2Hit.size(); i<n; i++){
+        if(typeid(*(Enemy2Hit[i])) == typeid(Player)){
 
             game->score->decrease();
             game->player->resetPlayer();

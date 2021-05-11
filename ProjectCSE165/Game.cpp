@@ -64,7 +64,7 @@ Game::Game(QWidget * parent){
 
     player = new Player();
 //    player->setPixmap(QPixmap(":/sprites/character.png")); //setRect(0,0,25,25); // change the rect from 0x0 (default) to 100x100 pixels
-    player->setPos(500,900);                                                            // negative X is <-
+    player->setPos(450,500);                                                            // negative X is <-
                                                                                       //negative Y is ^
     // add the item to the scene
     // make rect focusable
@@ -75,6 +75,9 @@ Game::Game(QWidget * parent){
    // setting location of the player according to window view
 
     //SCORE UPDATE
+     coinScores = new coinScore();
+     scene->addItem(coinScores);
+
      score = new Score();
      scene->addItem(score);
 
@@ -92,14 +95,7 @@ Game::Game(QWidget * parent){
    player->GoalSpawn();
   }
 
-     //spawns the little goal
 
-    //      player->spawn();
-        //    timer -> start(1000);
-//        QMovie *movie = new QMovie("qrc:/sprites/coin.gif");
-//    QLabel *processLabel = new QLabel(this);
-//    processLabel->setMovie(movie);
-//    movie->start();
 
     // Attempts at sound
       QMediaPlayer * music = new QMediaPlayer();
