@@ -90,30 +90,44 @@ void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
 
 
     //ATTACKS
-    else if (event->key() == Qt::Key_Up){
+    else if (event->key() == Qt::Key_Up){ //up key
         // create a bullet
         Attack * attack = new Attack();
-        attack->setPos(x(),y()-65);
+
+
+      attack->setPixmap(QPixmap(":/sprites/lawBookUp.png"));
+
+      attack->setPos(x(),y()-120);
 
         scene()->addItem(attack);
     }
-    else if (event->key() == Qt::Key_Down){
+
+    /*
+    else if (event->key() == Qt::Key_Down){ //dow
     // create a bullet
     Attack * attack = new Attack();
     attack->setPos(x(),y()+10);
 
     scene()->addItem(attack);
     }
-    else if (event->key() == Qt::Key_Right){
+
+    */
+    else if (event->key() == Qt::Key_Right){//right
        // create a bullet
        Attack * attack = new Attack();
+
+       attack->setPixmap(QPixmap(":/sprites/lawBookRight.png"));
+
        attack->setPos(x()+100,y()-10);
 
        scene()->addItem(attack);
     }
-    else if (event->key() == Qt::Key_Left){
+    else if (event->key() == Qt::Key_Left){//left
        // create a bullet
        Attack * attack = new Attack();
+
+       attack->setPixmap(QPixmap(":/sprites/lawBookLeft.png"));
+
        attack->setPos(x()-30,y()-10);
 
        scene()->addItem(attack);

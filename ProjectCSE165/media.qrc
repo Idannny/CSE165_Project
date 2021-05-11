@@ -19,6 +19,10 @@
         <file>characterNew.png</file>
         <file>coinNew.png</file>
         <file>coinNewAgain.png</file>
+        <file>lawBook.png</file>
+        <file>lawBookLeft.png</file>
+        <file>lawBookRight.png</file>
+        <file>lawBookUp.png</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

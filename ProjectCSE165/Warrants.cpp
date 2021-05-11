@@ -13,7 +13,7 @@ extern Game * game; // there is an external global object called game
 
 Attack::Attack(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){ //every time space is pressed
     // drew the rect
-    setPixmap(QPixmap(":/sprites/warrants.png"));
+//    setPixmap(QPixmap(":/sprites/lawBook.png"));
 //double
     // connect
     QTimer * timerUp = new QTimer();
