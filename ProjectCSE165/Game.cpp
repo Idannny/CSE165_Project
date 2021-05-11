@@ -79,10 +79,6 @@ Game::Game(QWidget * parent){
      scene->addItem(coinScores);
      coinScores->setPos(0, 30);
 
-     for(int i = 0; i<4; i++){ //TESTER for how many things we can spawn
-
-      player->GoalSpawn();
-     }
 
      score = new Score();
      scene->addItem(score);
@@ -92,10 +88,14 @@ Game::Game(QWidget * parent){
       QTimer * timer = new QTimer();
 
     QObject::connect(timer,SIGNAL(timeout()),player, SLOT(EnemySpawn()));
-    timer->start(700);
+    timer->start(500);
 
 
 
+  for(int i = 0; i<4; i++){ //TESTER for how many things we can spawn
+//   player->spawnWall();
+   player->GoalSpawn();
+  }
 
 
 

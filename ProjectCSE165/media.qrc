@@ -24,7 +24,5 @@
         <file>lawBookRight.png</file>
         <file>lawBookUp.png</file>
     </qresource>
-    <qresource prefix="/">
-        <file>characterImage.jpg</file>
-    </qresource>
+    <qresource prefix="/"/>
 </RCC>

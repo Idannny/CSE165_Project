@@ -12,6 +12,16 @@ extern coinScore* score;
 extern Game * game; //ALLOWS WALLS TO DESTROY PLAYER
 
 
+
+extern  QGraphicsRectItem * rectangle1;
+extern Button * my_button;
+extern QGraphicsRectItem * rectangle2;
+
+
+//extern  QGraphicsRectItem * rectangle3;
+
+
+
 Enemy1::Enemy1(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
 
     //Adding sound when player collides with car(wall)
@@ -35,6 +45,7 @@ Enemy1::Enemy1(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
     if(game->score->getScore()>=0){ //if a player's score is 0:
         connect(timer,SIGNAL(timeout()),this,SLOT(moveDown()));
       timer->start(75);
+    }
 //        if(game->score->getScore()==1){
 //            delete timer;
 //        }
@@ -44,7 +55,7 @@ Enemy1::Enemy1(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
         //every 75 ms timeout signals move to move bullet
     }
 
-}
+
 
 
 

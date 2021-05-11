@@ -31,7 +31,7 @@ void Attack::moveUp(){
 
 
     for (int i = 0, n = colliding_items.size(); i<n; i++){
-        if(typeid(*(colliding_items[i])) == typeid(Boss)){
+        if(typeid(*(colliding_items[i])) == typeid(Enemy1)){
                 //remove both
 //              // count++;
                  game->score->increase();
@@ -66,7 +66,7 @@ void Attack::moveDown()
 
 
     for (int i = 0, n = colliding_items.size(); i<n; i++){
-        if(typeid(*(colliding_items[i])) == typeid(Boss)){
+        if(typeid(*(colliding_items[i])) == typeid(Enemy1)){
                 //remove both
             // count++;
                  game->score->increase();
@@ -83,6 +83,8 @@ void Attack::moveDown()
     }
     // move bullet up
     setPos(x(),10); //direction of warrant coordinates
+
+
 
 
     //when bullets move off the screen delete them waste of memoory

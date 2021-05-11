@@ -51,20 +51,13 @@ void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
          if (goalSound->state() == QMediaPlayer::PlayingState){
                     goalSound->setPosition(0);
                 }
-                else if (goalSound->state() == QMediaPlayer::StoppedState){ // no crashing
+                else if (goalSound->state() == QMediaPlayer::StoppedState){
                     goalSound->play();
                 }
-
             game->coinScores->increase();
+//          qDebug()<<"coin check";
 
-          qDebug()<<"coin check";
-                delete coinCollect[i];
-
-            if(game->coinScores->getScore() == 4){
-                qDebug()<< "collected all coins";
-
-            }
-
+         delete coinCollect[i];
           return;
              }
           }
@@ -74,8 +67,6 @@ void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
     if (event->key() == Qt::Key_A){
         if(pos().x()>0){ // if the player reaches the bounds because scene's Left is origin x
             setPos(x()-15,y());
-
-
             }
     }
     else if (event->key() == Qt::Key_D){
@@ -146,13 +137,14 @@ void Player::keyPressEvent(QKeyEvent *event){ //when moving the player left and 
 
 void Player::EnemySpawn(){ //to spawn the enemy as rectangular objects: similar to user
     //create Walls AND goal
+
     //first enemy created
 
 
     Enemy1 * EnemyDown = new Enemy1(); //VERY IMPORTANT
     scene() -> addItem(EnemyDown);
-
     /*scene() -> addItem(endGoal);*///additem is member from Qgraphicsscene*/
+
     //second enemy created
 
    if(game->score->getScore() >= 1){ // if the score is increased we get new enemies
@@ -165,17 +157,10 @@ void Player::EnemySpawn(){ //to spawn the enemy as rectangular objects: similar 
 
 }
 
-void Player:: bossSpawn(){
-
-}
-
 void Player::GoalSpawn()
 {
     Goal * endGoal = new Goal();
     scene() -> addItem(endGoal);//
-
-
-
 }
 
 void Player::resetPlayer(){
