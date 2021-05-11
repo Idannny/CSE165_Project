@@ -165,7 +165,7 @@ void Player::GoalSpawn()
 
 void Player::resetPlayer(){
 
-    setPos(450, 500);
+    setPos(500, 950);
 
     //new Player();
     // QPushButton::connect(my_button,SIGNAL(clicked()),game, SLOT(Button()));

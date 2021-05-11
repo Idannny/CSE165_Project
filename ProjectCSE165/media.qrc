@@ -23,6 +23,8 @@
         <file>lawBookLeft.png</file>
         <file>lawBookRight.png</file>
         <file>lawBookUp.png</file>
+        <file>FATCAT.png</file>
+        <file>FATCAT2.png</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

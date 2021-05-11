@@ -31,10 +31,10 @@ Enemy2::Enemy2(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
 
     //to generate the walls we see in the game:
 
-     setPixmap(QPixmap(":/sprites/carNew.png"));
+     setPixmap(QPixmap(":/sprites/FATCAT1.png"));
     int random_number = rand() % 950;
    // int random_enemySize = rand() %100;
-    setPos(50,random_number);
+    setPos(0,random_number);
 
 
 
@@ -93,9 +93,7 @@ void Enemy2::moveLeftToRight(){ //we also want different types of walls moving
     }
 
 
-
     setPos(x() + 30 , y() ); //move right 30 spaces:
-
 
     //when blocks move off the screen delete them waste of memoory walls deleted from memory
     if (pos().y() + pixmap().height() > 1020 ){// 0 is origin for y (Topleft)// with rect().height()we now have that after the size of the

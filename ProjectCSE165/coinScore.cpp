@@ -24,6 +24,9 @@ void coinScore::increase()
     //###############################################################
 
     score++;
+    if(score == 3){
+        delete this;
+    }
     setPlainText(QString("Money Attained: ") + QString::number(score)); // Score: 1
 
 
